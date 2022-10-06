@@ -12,6 +12,8 @@ module.exports = {
         if (cart) {
             count = cart.products.length
             console.log("cart count", count) 
+        }else{
+            count = 0 
         }
 
         let wishlistCount = null

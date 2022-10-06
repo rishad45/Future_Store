@@ -145,7 +145,7 @@ module.exports = {
         console.log(user);
         return user
     },
-    // ===================GET user H O M E P A G E 
+    // =================== GET user H O M E P A G E 
     getHome: async (req, res, next) => {
         const categories = await adminRepository.getAllCategories()
         console.log(categories);
@@ -159,15 +159,21 @@ module.exports = {
         if (loggedIn) {
             user = req.session.user
         }
-
+        // Banners.................................
         const arr = await bannerManagementModel.findOne({}, { heroSliders: 1, _id: 0 })
         const arr2 = await bannerManagementModel.findOne({}, { categoryBanner: 1, _id: 0 })
         const arr3 = await bannerManagementModel.findOne({}, { shopBanner: 1, _id: 0 })
         const sliders = arr.heroSliders
         const categoryBanners = arr2.categoryBanner
         const shopBanners = arr3.shopBanner
+        // New arrivals..............................
+        const newArrivals = await userRepo.newArrivals()
+        console.log("newArrivals", newArrivals);
+        // best sellers ..............................
+        const bestSellers = await userRepo.bestSellers()
+        console.log("best sellers", bestSellers); 
 
-        res.render('users/home', { loggedIn, user, categories, cartCount, wishlistCount, sliders, categoryBanners, shopBanners })
+        res.render('users/home', { loggedIn, user, categories, cartCount, wishlistCount, sliders, categoryBanners, shopBanners, newArrivals, bestSellers}) 
     },
 
     // get Headsets
@@ -341,13 +347,16 @@ module.exports = {
 
     // get account
     getUserAccount: async (req, res) => {
+        let emptyCoupon
         const user = req.session.user
         // console.log(user)
         const address = await userRepo.getAddress(user._id)
         // get all coupons 
         const coupons = await userRepo.getAllCoupons(user._id)
         console.log(coupons)
-        res.render('users/userProfile', { address: address.address, user, coupons })
+        coupons.length==0 ? emptyCoupon = true : emptyCoupon = false
+        console.log("emptyCoupon", emptyCoupon);
+        res.render('users/userProfile', { address: address.address, user, coupons, emptyCoupon})
 
     },
 

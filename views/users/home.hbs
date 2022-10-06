@@ -3,6 +3,7 @@
 
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,7 +40,7 @@
 
 <body>
     <!-- Start Header Area -->
-    
+
     {{>header}}
     <!-- Start Hero Slider Section-->
     <div class="hero-slider-section">
@@ -48,11 +49,11 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Start Hero Single Slider Item -->
-                 <!-- End Hero Single Slider Item -->
+                <!-- End Hero Single Slider Item -->
                 <div class="hero-single-slider-item swiper-slide">
                     <!-- Hero Slider Image -->
                     <div class="hero-slider-bg ">
-                        <img src="{{sliders.[0]}}" alt=""> 
+                        <img src="{{sliders.[0]}}" alt="">
                     </div>
                     <!-- Hero Slider Content -->
                     <div class="hero-slider-wrapper">
@@ -61,7 +62,8 @@
                                 <div class="col-auto">
                                     <div class="hero-slider-content mt-5">
                                         <h4 class="subtitle text-white mt-5">Personalize every experience</h4>
-                                        <h1 class="title text-white">Find out what awaits with<br><span style="color: #05456b;"> Future Store</span></h1>
+                                        <h1 class="title text-white">Find out what awaits with<br><span
+                                                style="color: #05456b;"> Future Store</span></h1>
                                         <a href="/Headset/1" class="btn btn-lg btn-pink">shop now </a>
                                     </div>
                                 </div>
@@ -70,7 +72,7 @@
                     </div>
                 </div>
                 <!-- Start Hero Single Slider Item -->
-                <div class="hero-single-slider-item swiper-slide"> 
+                <div class="hero-single-slider-item swiper-slide">
                     <!-- Hero Slider Image -->
                     <div class="hero-slider-bg">
                         <img src="{{sliders.[1]}}" alt="">
@@ -90,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                 <!-- End Hero Single Slider Item -->
+                <!-- End Hero Single Slider Item -->
             </div>
 
             <!-- If we need pagination -->
@@ -104,7 +106,7 @@
     <!-- End Hero Slider Section-->
 
     <!-- Start Service Section -->
-    <div class="service-promo-section section-top-gap-100"> 
+    <div class="service-promo-section section-top-gap-100">
         <div class="service-wrapper">
             <div class="container">
                 <div class="row">
@@ -231,33 +233,35 @@
                                 <!-- Additional required wrapper -->
                                 <div class="swiper-wrapper">
                                     <!-- Start Product Default Single Item -->
+                                    {{#each newArrivals}}
                                     <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-1.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-2.jpg" alt="">
+                                        <div class="image-box" style="width: 270px;height: 270px;">
+                                            <a href="/singleProduct/{{this._id}}" class="image-link">
+                                                <img src="../img/products/{{this.coverImage}}" alt="">
+                                                <img src="../img/products/{{this.allImages.[0]}}" alt="">
                                             </a>
                                             <div class="tag">
                                                 <span>sale</span>
                                             </div>
                                             <div class="action-link">
                                                 <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
+                                                    <a href="/addToCart/{{this._id}}">Add to Cart</a>
                                                 </div>
                                                 <div class="action-link-right">
                                                     <a href="#" data-bs-toggle="modal"
                                                         data-bs-target="#modalQuickview"><i
                                                             class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
+                                                    <a onclick="addToWishlist('{{this._id}}')"><i
+                                                            class="icon-heart"></i></a>
+                                                    <a href="#"><i class="icon-shuffle"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="content">
                                             <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Aliquam
-                                                        lobortis</a></h6>
+                                                <h6 class="title"><a
+                                                        href="/singleProduct/{{this._id}}">{{this.productTitle}}</a>
+                                                </h6>
                                                 <ul class="review-star">
                                                     <li class="fill"><i class="ion-android-star"></i></li>
                                                     <li class="fill"><i class="ion-android-star"></i></li>
@@ -267,460 +271,12 @@
                                                 </ul>
                                             </div>
                                             <div class="content-right">
-                                                <span class="price">$75.00 - $85.00</span>
+                                                <span class="price">${{this.price}}</span>
                                             </div>
 
                                         </div>
                                     </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-3.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-4.jpg" alt="">
-                                            </a>
-                                            <div class="tag">
-                                                <span>sale</span>
-                                            </div>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Condimentum
-                                                        posuere</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price"><del>$89.00</del> $80.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-5.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-6.jpg" alt="">
-                                            </a>
-                                            <div class="tag">
-                                                <span>sale</span>
-                                            </div>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Cras neque
-                                                        metus</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price"><del>$70.00</del> $60.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-7.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-8.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Donec eu libero
-                                                        ac</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$74</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-9.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-10.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Epicuri per
-                                                        lobortis</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$68</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-11.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-3.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Kaoreet
-                                                        lobortis sagit</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$95.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-5.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-7.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Condimentum
-                                                        posuere</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$115.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-6.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-9.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Convallis quam
-                                                        sit</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$75.00 - $85.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-3.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-5.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Dolorum fuga
-                                                        eget</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$71.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-4.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-7.jpg" alt="">
-                                            </a>
-                                            <div class="tag">
-                                                <span>sale</span>
-                                            </div>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Duis pulvinar
-                                                        obortis</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price"><del>$84.00</del> $75.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-5.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-8.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Dolorum fuga
-                                                        eget</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$90</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-10.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-6.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Duis pulvinar
-                                                        obortis</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$86.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
+                                    {{/each}}
                                     <!-- End Product Default Single Item -->
                                 </div>
                             </div>
@@ -753,7 +309,7 @@
                 <div class="banner-single-item banner-style-8 banner-animation banner-color--green float-left"
                     data-aos="fade-up" data-aos-delay="200">
                     <div class="image">
-                        <img class="img-fluid" src="{{shopBanners.[1]}}" alt=""> 
+                        <img class="img-fluid" src="{{shopBanners.[1]}}" alt="">
                     </div>
                 </div>
             </a>
@@ -791,30 +347,29 @@
                                 <div class="swiper-wrapper">
                                     <!-- End Product Default Single Item -->
                                     <!-- Start Product Default Single Item -->
+                                    {{#each bestSellers}} 
                                     <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-9.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-10.jpg" alt="">
+                                        <div class="image-box" style="width: 270px;height: 270px;">
+                                            <a href="/singleProduct/{{this.productDetails.[0]._id}}" class="image-link">
+                                                <img src="../img/products/{{this.productDetails.[0].coverImage}}" alt="">
+                                                <img src="../img/products/{{this.productDetails.[0].allImages.[0]}}" alt="">
                                             </a>
                                             <div class="action-link">
                                                 <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
+                                                    <a href="/addToCart/{{this.productDetails.[0]._id}}">Add to Cart</a>
                                                 </div>
                                                 <div class="action-link-right">
                                                     <a href="#" data-bs-toggle="modal"
                                                         data-bs-target="#modalQuickview"><i
                                                             class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
+                                                    <a onclick="addToWishlist('{{this.productDetails.[0]._id}}')"><i class="icon-heart"></i></a>
+                                                    <a href=""><i class="icon-shuffle"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="content">
                                             <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Epicuri per
-                                                        lobortis</a></h6>
+                                                <h6 class="title"><a href="/singleProduct/{{this.productDetails.[0]._id}}">{{this.productDetails.[0].productTitle}}</a></h6>
                                                 <ul class="review-star">
                                                     <li class="fill"><i class="ion-android-star"></i></li>
                                                     <li class="fill"><i class="ion-android-star"></i></li>
@@ -824,300 +379,13 @@
                                                 </ul>
                                             </div>
                                             <div class="content-right">
-                                                <span class="price">$68</span>
+                                                <span class="price">${{this.productDetails.[0].price}}</span>
                                             </div>
 
                                         </div>
                                     </div>
+                                    {{/each}} 
                                     <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-11.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-3.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Kaoreet
-                                                        lobortis sagit</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$95.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-5.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-7.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Condimentum
-                                                        posuere</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$115.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-6.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-9.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Convallis quam
-                                                        sit</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$75.00 - $85.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-1.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-2.jpg" alt="">
-                                            </a>
-                                            <div class="tag">
-                                                <span>sale</span>
-                                            </div>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Aliquam
-                                                        lobortis</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$75.00 - $85.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-3.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-4.jpg" alt="">
-                                            </a>
-                                            <div class="tag">
-                                                <span>sale</span>
-                                            </div>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Condimentum
-                                                        posuere</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price"><del>$89.00</del> $80.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-5.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-6.jpg" alt="">
-                                            </a>
-                                            <div class="tag">
-                                                <span>sale</span>
-                                            </div>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Cras neque
-                                                        metus</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price"><del>$70.00</del> $60.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- End Product Default Single Item -->
-                                    <!-- Start Product Default Single Item -->
-                                    <div class="product-default-single-item product-color--pink swiper-slide">
-                                        <div class="image-box">
-                                            <a href="product-details-default.html" class="image-link">
-                                                <img src="user/images/product/default/home-3/default-7.jpg" alt="">
-                                                <img src="user/images/product/default/home-3/default-8.jpg" alt="">
-                                            </a>
-                                            <div class="action-link">
-                                                <div class="action-link-left">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalAddcart">Add to Cart</a>
-                                                </div>
-                                                <div class="action-link-right">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#modalQuickview"><i
-                                                            class="icon-magnifier"></i></a>
-                                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
-                                                    <a href="compare.html"><i class="icon-shuffle"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content">
-                                            <div class="content-left">
-                                                <h6 class="title"><a href="product-details-default.html">Donec eu libero
-                                                        ac</a></h6>
-                                                <ul class="review-star">
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="fill"><i class="ion-android-star"></i></li>
-                                                    <li class="empty"><i class="ion-android-star"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="content-right">
-                                                <span class="price">$74</span>
-                                            </div>
-
-                                        </div>
-                                    </div> <!-- End Product Default Single Item -->
                                 </div>
                             </div>
                             <!-- If we need navigation buttons -->
@@ -1162,8 +430,8 @@
                                     <div class="blog-default-single-item blog-color--pink swiper-slide">
                                         <div class="image-box">
                                             <a href="blog-single-sidebar-left.html" class="image-link">
-                                                <img class="img-fluid"
-                                                    src="user/images/blog/blog-grid-home-1-img-1.jpg" alt="">
+                                                <img class="img-fluid" src="user/images/blog/blog-grid-home-1-img-1.jpg"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="content">
@@ -1186,8 +454,8 @@
                                     <div class="blog-default-single-item blog-color--pink swiper-slide">
                                         <div class="image-box">
                                             <a href="blog-single-sidebar-left.html" class="image-link">
-                                                <img class="img-fluid"
-                                                    src="user/images/blog/blog-grid-home-1-img-2.jpg" alt="">
+                                                <img class="img-fluid" src="user/images/blog/blog-grid-home-1-img-2.jpg"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="content">
@@ -1209,8 +477,8 @@
                                     <div class="blog-default-single-item blog-color--pink swiper-slide">
                                         <div class="image-box">
                                             <a href="blog-single-sidebar-left.html" class="image-link">
-                                                <img class="img-fluid"
-                                                    src="user/images/blog/blog-grid-home-1-img-3.jpg" alt="">
+                                                <img class="img-fluid" src="user/images/blog/blog-grid-home-1-img-3.jpg"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="content">
@@ -1233,8 +501,8 @@
                                     <div class="blog-default-single-item blog-color--pink swiper-slide">
                                         <div class="image-box">
                                             <a href="blog-single-sidebar-left.html" class="image-link">
-                                                <img class="img-fluid"
-                                                    src="user/images/blog/blog-grid-home-1-img-4.jpg" alt="">
+                                                <img class="img-fluid" src="user/images/blog/blog-grid-home-1-img-4.jpg"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="content">
@@ -1257,8 +525,8 @@
                                     <div class="blog-default-single-item blog-color--pink swiper-slide">
                                         <div class="image-box">
                                             <a href="blog-single-sidebar-left.html" class="image-link">
-                                                <img class="img-fluid"
-                                                    src="user/images/blog/blog-grid-home-1-img-5.jpg" alt="">
+                                                <img class="img-fluid" src="user/images/blog/blog-grid-home-1-img-5.jpg"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="content">
@@ -1281,8 +549,8 @@
                                     <div class="blog-default-single-item blog-color--pink swiper-slide">
                                         <div class="image-box">
                                             <a href="blog-single-sidebar-left.html" class="image-link">
-                                                <img class="img-fluid"
-                                                    src="user/images/blog/blog-grid-home-1-img-6.jpg" alt="">
+                                                <img class="img-fluid" src="user/images/blog/blog-grid-home-1-img-6.jpg"
+                                                    alt="">
                                             </a>
                                         </div>
                                         <div class="content">
@@ -1740,6 +1008,8 @@
     </div> <!-- End Modal Quickview cart -->
 
     <!-- ::::::::::::::All JS Files here :::::::::::::: -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
     <!-- Global Vendor, plugins JS -->
     <script src="user/js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="user/js/vendor/jquery-3.5.1.min.js"></script>
@@ -1766,6 +1036,8 @@
 
     <!-- Main JS -->
     <script src="user/js/main.js"></script>
+    <script src="/user/js/ajax.js"></script>
+
 
 </body>
 

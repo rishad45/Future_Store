@@ -8,6 +8,8 @@ const cancelledOrdersModel = require('../models/cancelledOrder')
 // requiring razorPay
 const Razorpay = require('razorpay');
 
+const dotenv = require('dotenv').config()
+
 // other requirements
 const { resolve, reject } = require('promise');
 const { default: mongoose, model } = require('mongoose');
@@ -16,9 +18,11 @@ const { json } = require('body-parser')
 
 // creating instance 
 let instance = new Razorpay({
-    key_id: 'rzp_test_jwDTlUJaAFAea0',
-    key_secret: 'SwH1rXBc8WNdtlqeEY9fwkk1',
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_SECRETKEY,
 });
+
+
 module.exports = {
     saveAddress: async (data, userId) => {
         try {
@@ -289,7 +293,7 @@ module.exports = {
     },
     cancelOrder: async (id, order, reason) => {
         try {
-            await orderModel.updateOne({ $and: [{ _id: order }, { 'products._id': id }] }, { $set: { 'products.$.orderStatus': 'canceled' ,'paymentStatus': 'refunded'} }).then((res) => {
+            await orderModel.updateOne({ $and: [{ _id: order }, { 'products._id': id }] }, { $set: { 'products.$.orderStatus': 'canceled', 'paymentStatus': 'refunded' } }).then((res) => {
                 console.log(res)
             })
             console.log(id, order, reason)
@@ -349,24 +353,82 @@ module.exports = {
                             'foreignField': '_id',
                             'as': 'couponDetails'
                         }
-                    }, 
+                    },
                     {
                         '$project': {
                             'couponDetails': 1,
-                            'coupons':1
+                            'coupons': 1
                         }
                     },
                     {
-                        $unwind:{
-                            path:'$couponDetails'
-                        } 
+                        $unwind: {
+                            path: '$couponDetails'
+                        }
                     }
                 ]
-            ); 
+            );
 
         }
         catch (e) {
             return e;
+        }
+    },
+    // new arrivals...
+    newArrivals: async () => {
+        try {
+            return await productModel.productModel.aggregate(
+                [
+                    {
+                        '$sort': {
+                            'createdAt': -1
+                        }
+                    }, {
+                        '$limit': 12
+                    }
+                ]
+            )
+        } catch (err) {
+            return err
+        }
+    },
+    // best sellers
+    bestSellers: async () => {
+        try {
+            return await orderModel.aggregate(
+                [
+                    {
+                        '$unwind': {
+                            'path': '$products'
+                        }
+                    }, {
+                        '$project': {
+                            'products': 1
+                        }
+                    }, {
+                        '$group': {
+                            '_id': '$products.productId',
+                            'count': {
+                                '$sum': 1
+                            }
+                        }
+                    }, {
+                        '$sort': {
+                            'count': -1
+                        }
+                    }, {
+                        '$limit': 8
+                    }, {
+                        '$lookup': {
+                            'from': 'productmodels',
+                            'localField': '_id',
+                            'foreignField': '_id',
+                            'as': 'productDetails'
+                        }
+                    }
+                ]
+            )
+        } catch (err) {
+            return err
         }
     }
 }

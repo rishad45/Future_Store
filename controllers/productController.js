@@ -211,7 +211,7 @@ module.exports = {
         let subCategories = await Categories.subCategoryModel.find({status:true},{subCatTitle:1}).lean().exec();
         let vendors = await Categories.vendorModel.find({status:true},{vendorName:1}).lean().exec();
         console.log(data);
-        res.render('admin/editProduct',{data,categories,subCategories,vendors}) 
+        res.render('admin/editProduct',{data,categories,subCategories,vendors, layout: 'adminLayout'}) 
     },
 
 

@@ -88,19 +88,26 @@
                   <h3>Total sells</h3>
                   <p class="text-700 lh-sm mb-0">Payment received across all channels</p>
                 </div>
-                
+
               </div>
               {{!-- total sales chart --}}
               <canvas id="salesChart" width="400" height="100"></canvas>
 
               {{!-- <div class="echart-total-sales-chart" style="min-height:320px;width:100%"></div> --}}
             </div>
-            <div class="col-12">
+            <div class="col-12 mb-5">
               <h3>ORDERS IN LAST 7 DAYS</h3>
-              <canvas id="orderChart" width="400" height="100"></canvas>
+              <canvas id="orderChart" width="500" height="200"></canvas>
             </div>
 
-            <div class="col-12 col-xxl-6">
+            <div class="col-12 mt-5">
+              <h3>COD VS ONLINE PAYMENT</h3>
+              <div style="height:400px;width:400px">
+                <canvas id="payMethod"></canvas>
+              </div>
+            </div>
+
+            {{!-- <div class="col-12 col-xxl-6">
               <div class="row g-3">
                 <div class="col-12 col-md-6">
                   <div class="card h-100">
@@ -120,7 +127,7 @@
                       </div>
                       <div class="mt-2">
                         <div class="d-flex align-items-center mb-2">
-                          <div class="bullet-item bg-primary me-2"></div> 
+                          <div class="bullet-item bg-primary me-2"></div>
                           <h6 class="text-900 fw-semi-bold flex-1 mb-0">Completed</h6>
                           <h6 class="text-900 fw-semi-bold mb-0">52%</h6>
                         </div>
@@ -202,7 +209,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
 
@@ -397,7 +404,7 @@
               <div class="echart-returning-customer" style="height:300px;"></div>
             </div>
           </div> --}}
-        </div>
+        {{!-- </div> --}}
 
       </div>
     </div>
@@ -416,16 +423,16 @@
 
     let orderDates = JSON.parse('{{{json orderDate}}}');
     let orderDatesRev = orderDates.reverse()
-    
+
     // sales data for last 7 days
     // last 7 saled dates
-    let salesDates= JSON.parse('{{{json salesDate}}}') 
-    let salesDateRev = salesDates.reverse()  
+    let salesDates = JSON.parse('{{{json salesDate}}}')
+    let salesDateRev = salesDates.reverse()
     console.log("salesDateRev", salesDateRev)
     // profits in last 7 days
     let profits = []
-    profits.push({{salesProfit}}) 
-    let profitsRev = profits.reverse() 
+    profits.push({{ salesProfit }})
+    let profitsRev = profits.reverse()
     console.log("profitsRev", profitsRev)
 
     let order = []
@@ -437,7 +444,7 @@
     console.log(codVsOnline)
 
     let codVsOnlineRev = codVsOnline.reverse()
-    
+
 
     // sales chart
     const salesLabels = salesDateRev
@@ -457,7 +464,7 @@
     };
 
     const ctxSales = document.getElementById('salesChart').getContext('2d');
-    const salesChart = new Chart(ctxSales, salesConfig); 
+    const salesChart = new Chart(ctxSales, salesConfig);
 
     // bar chart
 

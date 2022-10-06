@@ -75,7 +75,7 @@ router.post('/admin/sign', adminControl.adminSignin)
 //..........GET logOut Route
 router.get('/adminLogout', (req, res) => {
   req.session.admin = false;
-  res.redirect('/admin')
+  res.redirect('/admin') 
 })
 // <- ====================================== ->
 
@@ -302,6 +302,7 @@ router.get('/api/getdata/:id', async (req, res) => {
 })
 
 router.post('/api/v1/getSales', adminController.getSalesByMonth)
+
 
 
 

@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const config = require('dotenv') ;
+const config = require('dotenv');
 
 const session = require('express-session')
 var MongoDBStore = require('connect-mongodb-session')(session);
@@ -74,7 +74,7 @@ app.use(session({
 
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
-  'client_id': process.env.CLIENT_ID,
+  'client_id': process.env.CLIENT_ID, 
   'client_secret': process.env.SECRET  
 });
 

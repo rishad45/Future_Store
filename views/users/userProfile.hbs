@@ -319,6 +319,13 @@
 
                             <h4 class="mb-5">GIFTS AND COUPONS</h4>
                             <div class="row">
+                                {{#if emptyCoupon}}
+                                {{!-- <h2>no coupons Available</h2> --}}
+                                <div style="width: 500px;height:500px">
+                                    <img src="https://res.cloudinary.com/dezl7f4po/image/upload/v1665086417/FutureStore%20assets/2953962_fjfbrw.jpg"
+                                        alt="" style="object-fit: cover; height: 100%; width: 100%;">
+                                </div>
+                                {{/if}}
                                 {{#each coupons}}
                                 <div class="col-lg-6 col-md-12">
                                     <div class="cardCoupon border">
@@ -338,12 +345,11 @@
 
                                             </div>
                                         </div>
-                                        {{#if coupons.redeemed}} 
+                                        {{#if coupons.redeemed}}
                                         <div class="copy-button">
-                                            
-                                            {{!-- <input id="copyvalue" type="text" readonly
-                                                value="" disabled/> --}}
-                                            <button class="copybtn" disabled >REDEEMED</button>
+
+                                            {{!-- <input id="copyvalue" type="text" readonly value="" disabled /> --}}
+                                            <button class="copybtn" disabled>REDEEMED</button>
                                         </div>
                                         {{else}}
                                         <div class="copy-button">
@@ -351,8 +357,8 @@
                                                 value="{{couponDetails.couponCode}}" />
                                             <button onclick="copyIt()" class="copybtn">COPY</button>
                                         </div>
-                                        
-                                        {{/if}} 
+
+                                        {{/if}}
                                     </div>
                                 </div>
                                 {{/each}}
@@ -426,8 +432,7 @@
                                                         <button class="text-primary" id="emailcancel" hidden
                                                             onclick="emailCancelButton()">Cancel</button>
 
-                                                        <button class="text-primary"
-                                                            onclick="changePassword('{{user._id}}','{{user.mobile}}')">Change
+                                                        <button class="text-primary">Change
                                                             Password</button></label>
 
                                                     <input type="text" class="emailEditBox" placeholder="{{user.email}}"
@@ -867,22 +872,21 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
-    <script>
-        //function changePassword(id, mobile) {
-         //   var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
-            //    keyboard: false
-        //    })
-         //   myModal.show()
+    {{!-- <script>
+        function changePassword(id, mobile) {
+           var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                keyboard: false
+           })
+           myModal.show()
 
-         //   let data = {}
-         //   data._id = id
-        //    data.mobile = mobile
-         //   console.log(data)
-        //    axios.post('/changePassword', data).then((res) => {
-        //        alert('hey')
-        //    })
-    //    }
-   // </script>
+           let data = {}
+           data._id = id
+           data.mobile = mobile
+            console.log(data)
+          axios.post('/changePassword', data).then((res) => {
+           })
+     }
+   </script> --}}
 
 
 
