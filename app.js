@@ -32,7 +32,7 @@ app.set('view engine', 'hbs');
 // ...........connecting mongodb............
 
 
-const url = `mongodb+srv://rishad:rishad45richu@clusterfuturestore.ckyk4k7.mongodb.net/futureStore?retryWrites=true&w=majority`
+const url = process.env.DATABASE_URL
 
 const connectionParams = {
   useNewUrlParser: true,
@@ -74,8 +74,8 @@ app.use(session({
 
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
-  'client_id': 'AdAp98nbI4vcYpHXawfu-uwrCVgfygpY4kpjxeZ0jTorcShXNkiMMsKadKpW82pbxBsJ1Ffq294uF1JL',
-  'client_secret': 'EKVGgIMl35nI2HspPzzgstDowutYt4BZ6hhFEFi14n-a69675FddFYy7wrGkYjcdvHtSsJxWJb3FHyr3' 
+  'client_id': process.env.CLIENT_ID,
+  'client_secret': process.env.SECRET  
 });
 
 app.use((req, res, next) => {
@@ -142,7 +142,6 @@ app.use('/uploadImage', upload.array('images'), async (req, res) => {
   }
 )
 
-// app.use('/testMyPlan/:id',adminController.listItems)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -164,4 +163,4 @@ app.use(function (err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports = app; 
