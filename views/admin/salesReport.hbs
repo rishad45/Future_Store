@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+
+<body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container">
+            {{>admin-sidenav}}
+            {{>admin-vertical-nav}}
+            <div class="content">
+                <nav class="mb-2" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#!">Page 1</a></li>
+                        <li class="breadcrumb-item"><a href="#!">Page 2</a></li>
+                        <li class="breadcrumb-item active">Default</li>
+                    </ol>
+                </nav>
+                <div class="mb-9">
+                    <div class="row g-3 mb-4">
+                        <div class="col-auto">
+                            <h2 class="mb-0">Sales Report</h2>
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <div
+                            class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white border-top border-bottom border-200 position-relative top-1">
+                            <div class="ml-5">
+                                <p class="text-primary">Filter data by date</p>
+                                <table border="0" cellspacing="5" cellpadding="5">
+                                    <tbody>
+                                        <tr>
+                                            <td>Minimum date:</td>
+                                            <td><input type="text" id="min" name="min"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maximum date:</td>
+                                            <td><input type="text" id="max" name="max"></td>
+                                        </tr>
+                                    </tbody>
+                            </div>
+                            <div class="table-responsive scrollbar mx-n1 px-1">
+
+                                </table>
+
+                                <table id="salesTable" class="cell-border" cellspacing="5" cellpadding="5">
+                                    <thead>
+
+                                        <tr>
+
+                                            <th class="sort white-space-nowrap align-middle pe-3" scope="col"
+                                                data-sort="order" style="width:5%;">ORDER</th>
+                                            <th class="sort align-middle text-end" scope="col" data-sort="total"
+                                                style="width:10%;">TOTAL</th>
+                                            <th class="sort align-middle ps-8" scope="col" data-sort="customer"
+                                                style="width:20%;">CUSTOMER_ID
+                                            </th>
+                                            <th class="sort align-middle pe-3" scope="col" data-sort="payment_status"
+                                                style="width:20%;">
+                                                PAYMENT STATUS</th>
+                                            <th class="sort align-middle pe-3" scope="col" data-sort="order_status"
+                                                style="width:20%;">
+                                                ORDER STATUS</th>
+                                            <th class="sort align-middle text-start" scope="col"
+                                                data-sort="delivery_type" style="width:20%;">
+                                                DELIVERY TYPE</th>
+                                            <th class="sort align-middle text-end pe-0" scope="col" data-sort="date"
+                                                style="width:5% ;">
+                                                DATE</th>
+
+                                        </tr>
+                                    </thead>
+
+
+
+                                    <tbody class="list" id="table-latest-review-body">
+                                        {{#each orders}}
+                                        <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+
+                                            <td class="order align-middle white-space-nowrap py-0"><a
+                                                    class="fw-semi-bold" href="#!">{{this._id}}</a></td>
+                                            <td class="total align-middle text-end fw-semi-bold">${{this.GrandTotal}}
+                                            </td>
+                                            <td class="customer align-middle white-space-nowrap ps-8">
+                                                {{this.user.[0]._id}}
+                                            </td>
+                                            {{!-- =================================================== --}}
+                                            {{!-- ================================== PAYMENT STATUS --}}
+                                            <td
+                                                class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                {{this.paymentStatus}}</td>
+                                            {{!-- .....................order statuses....................... --}}
+                                            <td
+                                                class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                {{this.products.orderStatus}}</td>
+                                            <td
+                                                class="delivery_type align-middle white-space-nowrap text-900 fs--1 text-start">
+                                                {{this.paymentMethod}}</td>
+                                            <td
+                                                class="date align-middle white-space-nowrap text-700 fs--1 ps-4 text-end">
+                                                {{formatString
+                                                this.createdAt}}</td>
+
+
+                                        </tr>
+
+
+                                        {{/each}}
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer position-absolute">
+                    <div class="row g-0 justify-content-between align-items-center h-100 mb-3">
+                        <div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 mt-2 mt-sm-0 text-900">Thank you for creating with Phoenix<span
+                                    class="d-none d-sm-inline-block"></span><span class="mx-1">|</span><br
+                                    class="d-sm-none" />2022 &copy;
+                                <a href="https://themewagon.com">Themewagon</a>
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 text-600">v1.2.0</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    {{!-- date time filter --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+    <script>
+
+        var minDate, maxDate;
+
+        // Custom filtering function which will search data in column four between two values
+        $.fn.dataTable.ext.search.push(
+            function (settings, data, dataIndex) {
+                var min = minDate.val();
+                var max = maxDate.val();
+                var date = new Date(data[6]);
+
+                if (
+                    (min === null && max === null) ||
+                    (min === null && date <= max) ||
+                    (min <= date && max === null) ||
+                    (min <= date && date <= max)
+                ) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
+        $(document).ready(function () {
+            // Create date inputs
+            minDate = new DateTime($('#min'), {
+                format: 'MMMM Do YYYY'
+            });
+            maxDate = new DateTime($('#max'), {
+                format: 'MMMM Do YYYY'
+            });
+
+            // DataTables initialisation
+            var table = $('#salesTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+
+            // Refilter the table
+            $('#min, #max').on('change', function () {
+                table.draw();
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+
+
+</html>

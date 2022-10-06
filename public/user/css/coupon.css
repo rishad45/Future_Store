@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+
+
+.cardCoupon {
+    width: 400px;
+    height: 220px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding: 10px 10px;
+    position: relative;
+}
+
+.mainCoupon,
+.copy-button {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.cardCoupon::after {
+    position: absolute;
+    content: "";
+    height: 40px;
+    right: -20px;
+    border-radius: 40px;
+    z-index: 1;
+    top: 70px;
+    background-color: #c5c2c2;
+    width: 40px;
+}
+
+.cardCoupon::before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    left: -20px;
+    border-radius: 40px;
+    z-index: 1;
+    top: 70px;
+    background-color: #c5c2c2;
+    width: 40px;
+}
+
+.co-imgCoup img {
+    width: 100px;
+    height: 100px;
+}
+
+.verticalCoupon {
+    border-left: 5px dotted black;
+    height: 100px;
+    position: absolute;
+    left: 40%;
+}
+
+.contentCoupon h1 {
+    font-size: 35px;
+    margin-left: -20px;
+    color: #565656;
+}
+
+.contentCoupon h1 span {
+    font-size: 18px;
+}
+
+.contentCoupon h2 {
+    font-size: 18px;
+    margin-left: -20px;
+    color: #565656;
+    text-transform: uppercase;
+}
+
+.contentCoupon .p {
+    font-size: 16px;
+    color: #696969;
+    margin-left: -20px;
+}
+
+.copy-button {
+    margin: 7px 0 -5px 0;
+    height: 37px;
+    border-radius: 4px;
+    padding: 0 5px;
+    border: 1px solid #e1e1e1;
+}
+
+.copy-button input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.copy-button button {
+    padding: 5px 20px;
+    background-color: #dc143c;
+    color: #fff;
+    border: 1px solid transparent;
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Future Store</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../../../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../../../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../admin/vendors/dropzone/dropzone.min.css" rel="stylesheet">
+    <link href="../admin/vendors/choices/choices.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="../admin/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+    <link href="../admin/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+</head>
+
+<body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container">
+            {{>admin-sidenav}}
+            {{>admin-vertical-nav}}
+            <div class="content">
+                
+                <div class="row g-3 flex-between-center mb-5">
+                    <div class="col-auto">
+                        <h2 class="mb-2">Add Categories</h2>
+                    </div>
+                </div>
+                <h4 class="mb-3">Category Title</h4>
+                <div class="row g-5">
+                    <div class="col-12 col-xl-8 mb-5">
+                        <form action="/admin/addCategory" method="post" id="addCategory"><input
+                                class="form-control mb-5" type="text" placeholder="Write title here..."
+                                name="title" /><button class="btn btn-primary"><span class="fas fa-plus me-2"></span>Add
+                                category</button></form>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-4">
+                    <div class="row g-2">
+                        <div class="col-12 col-xl-12">
+
+                            <form action="/admin/addSubcategory" method="post" id="addSub">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Organize Sub-Categories</h4>
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-xl-12">
+                                                <div class="mb-4">
+                                                    <div class="d-flex flex-wrap justify-content-between mb-2">
+                                                        <h5>Select a Category</h5>
+                                                    </div><select class="form-select mb-3" aria-label="category"
+                                                        name="categoryTitle">
+                                                        {{#each data}}
+                                                        <option value="{{this.categoryTitle}}">
+                                                            {{this.categoryTitle}}
+                                                        </option>
+                                                        {{/each}}
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-xl-12">
+                                                <div class="mb-4">
+                                                    <div class="d-flex flex-wrap justify-content-between mb-2">
+                                                        <h5>Add Sub-category</h5>
+                                                    </div>
+                                                    <input class="form-control mb-3" type="text"
+                                                        placeholder="Sub-Category" name="subCategory" /><button
+                                                        class="btn btn-primary " type="submit"><span
+                                                            class="fas fa-plus me-2"></span>Add
+                                                        Sub-category</button>
+                                                </div>
+                                            </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- test --}}
+
+
+            </div>
+
+
+
+        </div>
+
+        {{!-- </div>
+        </div>
+        </div>
+        </div> --}}
+        {{!-- </form> --}}
+        </div>
+        {{!-- </div> --}}
+        <div class="container">
+            <div class="col-12 col-xl-4">
+                <div class="row g-2">
+                    <div class="col-12 col-xl-12">
+
+                        <form action="/admin/addVendor" method="post" id="addSub">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Organize Vendors</h4>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-xl-12">
+                                            <div class="mb-4">
+                                                <div class="d-flex flex-wrap justify-content-between mb-2">
+                                                    <h5>Add New Vendor</h5>
+                                                </div>
+                                                <input class="form-control mb-3" type="text" placeholder="vendor name"
+                                                    name="vendor" /><button class="btn btn-primary "
+                                                    type="submit"><span class="fas fa-plus me-2"></span>Add
+                                                    vendor</button>
+                                            </div>
+                                        </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main><!-- ===============================================-->
+
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+
+    <script>
+        $().ready(function () {
+            $("#addCategory").validate({
+                rules: {
+                    title: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 15
+                    }
+                }
+            })
+        })
+        $().ready(function () {
+            $("#addSub").validate({
+                rules: {
+                    subCategory: {
+                        required: true,
+                        minlength: 3,
+                        maxlength: 20
+                    }
+                }
+            })
+        })
+    </script>
+
+
+    <script src="../admin/vendors/popper/popper.min.js"></script>
+    <script src="../admin/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../admin/vendors/anchorjs/anchor.min.js"></script>
+    <script src="../admin/vendors/is/is.min.js"></script>
+    <script src="../admin/vendors/fontawesome/all.min.js"></script>
+    <script src="../admin/vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="../admin/vendors/list.js/list.min.js"></script>
+    <script src="../admin/vendors/feather-icons/feather.min.js"></script>
+    <script src="../admin/vendors/dayjs/dayjs.min.js"></script>
+    <script src="../admin/vendors/tinymce/tinymce.min.js"></script>
+    <script src="../admin/vendors/dropzone/dropzone.min.js"></script>
+    <script src="../admin/vendors/choices/choices.min.js"></script>
+    <script src="../admin/assets/js/phoenix.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>Phoenix</title>
+
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link href="assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+  <link href="assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+  <link href="vendors/leaflet/leaflet.css" rel="stylesheet">
+  <link href="vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
+  <link href="vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+  <main class="main" id="top">
+    <div class="container-fluid px-0" data-layout="container">
+      {{>admin-sidenav}}
+      {{>admin-vertical-nav}}
+      <div class="content">
+        <div class="pb-5">
+          <div class="row g-4">
+            <div class="col-12 col-xxl-6">
+              <div class="mb-8">
+                <h2 class="mb-2">Ecommerce Dashboard</h2>
+                <h5 class="text-700 fw-semi-bold">Here’s what’s going on at your business right now</h5>
+              </div>
+              <div class="row align-items-center g-4">
+                <div class="col-12 col-md-auto">
+                  <div class="d-flex align-items-center"><img src="assets/img/icons/illustrations/4.png" alt=""
+                      height="46" width="46" />
+                    <div class="ms-3">
+                      <h4 class="mb-0">{{ordersOnProcessing}} new orders</h4>
+                      <p class="text-800 fs--1 mb-0">Awating processing</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-auto">
+                  <div class="d-flex align-items-center"><img src="assets/img/icons/illustrations/2.png" alt=""
+                      height="46" width="46" />
+                    <div class="ms-3">
+                      <h4 class="mb-0">{{ordersOnHold}} orders</h4>
+                      <p class="text-800 fs--1 mb-0">On hold</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-auto">
+                  <div class="d-flex align-items-center"><img src="assets/img/icons/illustrations/3.png" alt=""
+                      height="46" width="46" />
+                    <div class="ms-3">
+                      <h4 class="mb-0">15 products</h4>
+                      <p class="text-800 fs--1 mb-0">Out of stock</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="bg-200 mb-6 mt-4" />
+              <div class="row flex-between-center mb-4 g-3">
+                <div class="col-auto">
+                  <h3>Total sells</h3>
+                  <p class="text-700 lh-sm mb-0">Payment received across all channels</p>
+                </div>
+                
+              </div>
+              {{!-- total sales chart --}}
+              <canvas id="salesChart" width="400" height="100"></canvas>
+
+              {{!-- <div class="echart-total-sales-chart" style="min-height:320px;width:100%"></div> --}}
+            </div>
+            <div class="col-12">
+              <h3>ORDERS IN LAST 7 DAYS</h3>
+              <canvas id="orderChart" width="400" height="100"></canvas>
+            </div>
+
+            <div class="col-12 col-xxl-6">
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h5 class="mb-1">Total orders<span
+                              class="badge badge-light-warning rounded-pill fs--1 ms-2">-6.8%</span></h5>
+                          <h6 class="text-700">Last 7 days</h6>
+                        </div>
+                        <h4>16,247</h4>
+                      </div>
+                      <div class="d-flex justify-content-center px-4 py-6">
+                        <div class="echart-total-orders" style="height:85px;width:115px"
+                          data-echarts='{"tooltip":{"show":false},"series":[{"type":"bar","barWidth":"5px","data":[{{paymentSuccess}}],"showBackground":true,"symbol":"none","itemStyle":{"borderRadius":10},"backgroundStyle":{"borderRadius":10}}],"grid":{"right":20,"left":20,"bottom":0,"top":0}}'>
+                        </div>
+                      </div>
+                      <div class="mt-2">
+                        <div class="d-flex align-items-center mb-2">
+                          <div class="bullet-item bg-primary me-2"></div> 
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Completed</h6>
+                          <h6 class="text-900 fw-semi-bold mb-0">52%</h6>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="bullet-item bg-light-primary me-2"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Pending payment</h6>
+                          <h6 class="text-900 fw-semi-bold mb-0">48%</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h5 class="mb-1">New customers<span
+                              class="badge badge-light-warning rounded-pill fs--1 ms-2">+26.5%</span></h5>
+                          <h6 class="text-700">Last 7 days</h6>
+                        </div>
+                        <h4>356</h4>
+                      </div>
+                      <div class="pb-0 pt-4">
+                        <div class="echarts-new-customers" style="height:180px;width:100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h5 class="mb-2">Top coupons</h5>
+                          <h6 class="text-700">Last 7 days</h6>
+                        </div>
+                      </div>
+                      <div class="pb-4 pt-3">
+
+                        <div class="echart-top-coupons" style="height:115px;width:100%;"></div>
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center mb-2">
+                          <div class="bullet-item bg-primary me-2"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Percentage discount</h6>
+                          <h6 class="text-900 fw-semi-bold mb-0">72%</h6>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                          <div class="bullet-item bg-primary-200 me-2"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Fixed card discount</h6>
+                          <h6 class="text-900 fw-semi-bold mb-0">18%</h6>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="bullet-item bg-info me-2"></div>
+                          <h6 class="text-900 fw-semi-bold flex-1 mb-0">Fixed product discount</h6>
+                          <h6 class="text-900 fw-semi-bold mb-0">10%</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <h5 class="mb-2">COD vs Online Payment</h5>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center pt-3">
+                        <div style="height:170px;width:180px">
+                          {{!-- <canvas id="payingCustomerChart"></canvas> --}}
+                          <canvas id="payMethod"></canvas>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{!-- <div class="row gx-6">
+          <div class="col-12 col-xl-6">
+            <div class="mb-5 mt-7">
+              <h3>Top regions by revenue</h3>
+              <p class="text-700">Where you generated most of the revenue</p>
+            </div>
+            <div class="table-responsive scrollbar">
+              <table class="table fs--2 mb-0">
+                <thead>
+                  <tr>
+                    <th class="border-top border-200 ps-0 align-middle" scope="col" style="width:32%">COUNTRY</th>
+                    <th class="border-top border-200 align-middle" scope="col" style="width:17%">USERS</th>
+                    <th class="border-top border-200 text-end align-middle" scope="col" style="width:16%">TRANSACTIONS
+                    </th>
+                    <th class="border-top border-200 text-end align-middle" scope="col" style="width:20%">REVENUE</th>
+                    <th class="border-top border-200 text-end pe-0 align-middle" scope="col" style="width:17%">CONV.
+                      RATE</th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                  <tr>
+                    <td></td>
+                    <td class="align-middle py-4">
+                      <h4 class="mb-0 fw-normal">377,620</h4>
+                    </td>
+                    <td class="align-middle text-end py-4">
+                      <h4 class="mb-0 fw-normal">236</h4>
+                    </td>
+                    <td class="align-middle text-end py-4">
+                      <h4 class="mb-0 fw-normal">$15,758</h4>
+                    </td>
+                    <td class="align-middle text-end py-4 pe-0">
+                      <h4 class="mb-0 fw-normal">10.32%</h4>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="white-space-nowrap ps-0" style="width:32%">
+                      <div class="d-flex align-items-center">
+                        <h6 class="mb-0 me-3">1. </h6><a href="#!">
+                          <div class="d-flex align-items-center"><img src="assets/img/country/india.png" alt=""
+                              width="24" />
+                            <p class="mb-0 ps-3 text-primary fw-bold fs--1">India</p>
+                          </div>
+                        </a>
+                      </div>
+                    </td>
+                    <td class="align-middle" style="width:17%">
+                      <h6 class="mb-0">92896<span class="text-700 fw-medium ms-2">(41.6%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">67<span class="text-700 fw-medium ms-2">(34.3%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">$7560<span class="text-700 fw-medium ms-2">(36.9%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end pe-0" style="width:17%">
+                      <h6>14.01%</h6>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="white-space-nowrap ps-0" style="width:32%">
+                      <div class="d-flex align-items-center">
+                        <h6 class="mb-0 me-3">2. </h6><a href="#!">
+                          <div class="d-flex align-items-center"><img src="assets/img/country/china.png" alt=""
+                              width="24" />
+                            <p class="mb-0 ps-3 text-primary fw-bold fs--1">China</p>
+                          </div>
+                        </a>
+                      </div>
+                    </td>
+                    <td class="align-middle" style="width:17%">
+                      <h6 class="mb-0">50496<span class="text-700 fw-medium ms-2">(32.8%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">54<span class="text-700 fw-medium ms-2">(23.8%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">$6532<span class="text-700 fw-medium ms-2">(26.5%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end pe-0" style="width:17%">
+                      <h6>23.56%</h6>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="white-space-nowrap ps-0" style="width:32%">
+                      <div class="d-flex align-items-center">
+                        <h6 class="mb-0 me-3">3. </h6><a href="#!">
+                          <div class="d-flex align-items-center"><img src="assets/img/country/usa.png" alt=""
+                              width="24" />
+                            <p class="mb-0 ps-3 text-primary fw-bold fs--1">USA</p>
+                          </div>
+                        </a>
+                      </div>
+                    </td>
+                    <td class="align-middle" style="width:17%">
+                      <h6 class="mb-0">45679<span class="text-700 fw-medium ms-2">(24.3%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">35<span class="text-700 fw-medium ms-2">(19.7%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">$5432<span class="text-700 fw-medium ms-2">(16.9%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end pe-0" style="width:17%">
+                      <h6>10.23%</h6>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="white-space-nowrap ps-0" style="width:32%">
+                      <div class="d-flex align-items-center">
+                        <h6 class="mb-0 me-3">4. </h6><a href="#!">
+                          <div class="d-flex align-items-center"><img src="assets/img/country/south-korea.png" alt=""
+                              width="24" />
+                            <p class="mb-0 ps-3 text-primary fw-bold fs--1">South Korea</p>
+                          </div>
+                        </a>
+                      </div>
+                    </td>
+                    <td class="align-middle" style="width:17%">
+                      <h6 class="mb-0">36453<span class="text-700 fw-medium ms-2">(19.7%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">22<span class="text-700 fw-medium ms-2">(9.54%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">$4673<span class="text-700 fw-medium ms-2">(11.6%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end pe-0" style="width:17%">
+                      <h6>8.85%</h6>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="white-space-nowrap ps-0" style="width:32%">
+                      <div class="d-flex align-items-center">
+                        <h6 class="mb-0 me-3">5. </h6><a href="#!">
+                          <div class="d-flex align-items-center"><img src="assets/img/country/vietnam.png" alt=""
+                              width="24" />
+                            <p class="mb-0 ps-3 text-primary fw-bold fs--1">Vietnam</p>
+                          </div>
+                        </a>
+                      </div>
+                    </td>
+                    <td class="align-middle" style="width:17%">
+                      <h6 class="mb-0">15007<span class="text-700 fw-medium ms-2">(11.9%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">17<span class="text-700 fw-medium ms-2">(6.91%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end" style="width:17%">
+                      <h6 class="mb-0">$2456<span class="text-700 fw-medium ms-2">(10.2%)</span></h6>
+                    </td>
+                    <td class="align-middle text-end pe-0" style="width:17%">
+                      <h6>6.01%</h6>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-flex align-items-center justify-content-between py-2 fs--1 mb-1">
+              <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="">1 to 5 <span
+                  class="text-600"> Items of </span> 15</p><a class="fw-semi-bold" href="#!" data-list-view="*">View
+                all<span class="fas fa-angle-right ms-2" data-fa-transform="down-1"></span></a>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="mx-n4 mx-lg-n6 ms-xl-0 h-100">
+              <div class="h-100 w-100">
+                <div class="h-100 bg-white" id="map" style="min-height: 300px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white pt-6 pb-9 border-top border-300">
+          <div class="row g-6">
+            <div class="col-12 col-xl-6">
+              <div class="me-xl-4">
+                <div>
+                  <h3>Projection vs actual</h3>
+                  <p class="mb-1 text-700">Actual earnings vs projected earnings</p>
+                </div>
+                <div class="echart-projection-actual" style="height:300px; width:100%"></div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-6">
+              <div>
+                <h3>Returning customer rate</h3>
+                <p class="mb-1 text-700">Rate of customers returning to your shop over time</p>
+              </div>
+              <div class="echart-returning-customer" style="height:300px;"></div>
+            </div>
+          </div> --}}
+        </div>
+
+      </div>
+    </div>
+  </main><!-- ===============================================-->
+  <!--    End of Main Content-->
+  <!-- ===============================================-->
+
+
+
+  <!-- ===============================================-->
+  <!--    JavaScripts-->
+  <!-- ===============================================-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script>
+    //let orderDates=orderDatee 
+
+    let orderDates = JSON.parse('{{{json orderDate}}}');
+    let orderDatesRev = orderDates.reverse()
+    
+    // sales data for last 7 days
+    // last 7 saled dates
+    let salesDates= JSON.parse('{{{json salesDate}}}') 
+    let salesDateRev = salesDates.reverse()  
+    console.log("salesDateRev", salesDateRev)
+    // profits in last 7 days
+    let profits = []
+    profits.push({{salesProfit}}) 
+    let profitsRev = profits.reverse() 
+    console.log("profitsRev", profitsRev)
+
+    let order = []
+    order.push({{ orderDataByDate }})
+    let orderRev = order.reverse()
+
+    let codVsOnline = []
+    codVsOnline.push({{ codVsOnline }})
+    console.log(codVsOnline)
+
+    let codVsOnlineRev = codVsOnline.reverse()
+    
+
+    // sales chart
+    const salesLabels = salesDateRev
+    const salesData = {
+      labels: salesLabels,
+      datasets: [{
+        label: 'SALES',
+        data: profitsRev,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    };
+    const salesConfig = {
+      type: 'line',
+      data: salesData,
+    };
+
+    const ctxSales = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctxSales, salesConfig); 
+
+    // bar chart
+
+
+    //const labelsBar = [1,2,3,4,5,6,7]
+    const barData = {
+      labels: orderDatesRev,
+      datasets: [{
+        label: 'orders',
+        data: orderRev,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
+        ],
+        borderColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 159, 64)',
+          'rgb(255, 205, 86)',
+          'rgb(75, 192, 192)',
+          'rgb(54, 162, 235)',
+          'rgb(153, 102, 255)',
+          'rgb(201, 203, 207)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    const configBar = {
+      type: 'bar',
+      data: barData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      },
+    };
+    const ctxBar = document.getElementById('orderChart').getContext('2d');
+    const orderChart = new Chart(ctxBar, configBar);
+
+    // COD VS ONLINE PAYMENT
+    const payMethodData = {
+      labels: [
+        'ONLINE',
+        'COD'
+      ],
+      datasets: [{
+        label: 'My First Dataset',
+        data: codVsOnline,
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 4
+      }]
+    };
+
+    const paymethodsConfig = {
+      type: 'pie',
+      data: payMethodData,
+    };
+
+    const ctxPayMethod = document.getElementById('payMethod').getContext('2d');
+    const payMethodChart = new Chart(ctxPayMethod, paymethodsConfig); 
+  </script>
+
+</body>
+
+</html>

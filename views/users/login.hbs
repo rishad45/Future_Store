@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="has-sidemenu" lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>Login to see the future..</title>
+
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="../assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="../assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link href="/vendors/loaders.css/loaders.min.css" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono%7cPT+Serif:400,400i%7cLato:100,300,400,700,800,900"
+    rel="stylesheet">
+  <link href="/assets/css/theme.min.css" rel="stylesheet" />
+  <link href="/assets/css/user.min.css" rel="stylesheet" />
+</head>
+
+<body class="overflow-hidden-x">
+
+
+
+
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+  <main class="main min-vh-100" id="top">
+
+    <!-- ============================================-->
+    <!-- Preloader ==================================-->
+    <div class="preloader" id="preloader">
+      <div class="loader">
+        <div class="line-scale-pulse-out-rapid">
+          <div> </div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div> </div>
+        </div>
+      </div>
+    </div><!-- ============================================-->
+    <!-- End of Preloader ===========================-->
+
+    <!-- ============================================-->
+    <!-- <section> begin ============================-->
+    <section class="py-0">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 px-0">
+            <div class="sticky-top vh-lg-100 py-9">
+              <div class="bg-holder" style="background-image:url(../assets/img/single-blog-03.jpg);"
+                data-zanim-trigger="scroll" data-zanim-lg='{"animation":"zoom-out-slide-right","delay":0.4}'></div>
+              <!--/.bg-holder-->
+            </div>
+          </div>
+          <div class="col-lg-6 py-6">
+            <div class="row h-100 align-items-center justify-content-center">
+              <div class="col-sm-8 col-md-6 col-lg-10 col-xl-8" data-zanim-xs='{"delay":0.5,"animation":"slide-right"}'
+                data-zanim-trigger="scroll">
+                <h3 class="display-4 fs-2">Perfect for Startups,<br />freelancers &amp; companies.</h3>
+                <h6 class="text-danger mt-3">Specially crafted for the people who care about design.</h6>
+
+                {{!-- =======================form starts here=========================================== --}}
+
+                <form class="mt-5" method="post" action="/login">
+                  {{!-- {{if loginStatus}}
+                  <p>Incorrect Password</p>
+                  {{/if}} --}}
+                  <div class="mb-3"><input class="form-control bg-light" type="email" placeholder="Enter Email"
+                      name="email" /></div>
+                  <div class="mb-0"><input class="form-control bg-light" type="password" placeholder="Password"
+                      name="password" /></div>
+                  <div class="mb-3 d-grid"><button class="btn btn-dark mt-3" type="submit" name="submit">sign
+                      in</button></div>
+                  <div class="mb-3 w-100 position-relative text-center mt-4">
+                    <hr class="text-300" />
+                    <div class="absolute-centered px-3 font-sans-serif fs--1 text-500">or sign-in with</div>
+                  </div>
+                  <div class="mb-0">
+                    <div class="row gx-2">
+                      <div class="col-6 d-grid"><a class="btn btn-outline-danger btn-sm mt-2" href="#!"><span
+                            class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
+                      <div class="col-6 d-grid"><a class="btn btn-outline-primary btn-sm mt-2" href="#!"><span
+                            class="fab fa-facebook me-2" data-fa-transform="grow-8"></span> facebook</a></div>
+                    </div>
+                  </div>
+                </form>
+                {{#if loginStatus}}
+                <p>Incorrect Password</p>
+                {{/if}}
+                <p class="mt-5"><a href="/signup">Don't have an Account?</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- end of .container-->
+    </section><!-- <section> close ============================-->
+    <!-- ============================================-->
+
+  </main>
+  <!--    End of Main Content-->
+
+  <!-- ===============================================-->
+  <!--    JavaScripts-->
+  <!-- ===============================================-->
+  <script src="../vendors/popper/popper.min.js"></script>
+  <script src="../vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="../vendors/anchorjs/anchor.min.js"></script>
+  <script src="../vendors/is/is.min.js"></script>
+  <script src="../vendors/fontawesome/all.min.js"></script>
+  <script src="../vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="../vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="../vendors/gsap/gsap.js"></script>
+  <script src="../vendors/gsap/customEase.js"></script>
+  <script src="../vendors/gsap/drawSVGPlugin.js"></script><!-- Global site tag (gtag.js) - Google Analytics-->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-122907869-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-122907869-1');
+  </script>
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

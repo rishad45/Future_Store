@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===============================================-->
+  <!--    Document Title-->
+  <!-- ===============================================-->
+  <title>Phoenix</title>
+
+  <!-- ===============================================-->
+  <!--    Favicons-->
+  <!-- ===============================================-->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="../../../assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="../../../assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="../../../assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- ===============================================-->
+  <!--    Stylesheets-->
+  <!-- ===============================================-->
+  <link href="../admin/vendors/dropzone/dropzone.min.css" rel="stylesheet">
+  <link href="../admin/vendors/choices/choices.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link href="../admin/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+  <link href="../admin/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+
+
+  <script>
+    $(document).ready(function () {
+      $("#btnSubmit").click(function (event) {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+        var form = $("fileUploadForm")[0];
+        var data = new FormData(form);
+
+
+  </script>
+</head>
+
+<body>
+  <!-- ===============================================-->
+  <!--    Main Content-->
+  <!-- ===============================================-->
+  <main class="main" id="top">
+    <div class="container-fluid px-0" data-layout="container">
+      {{>admin-sidenav}}
+      {{>admin-vertical-nav}}
+      <div class="content">
+        <nav class="mb-2" aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#!">Page 1</a></li>
+            <li class="breadcrumb-item"><a href="#!">Page 2</a></li>
+            <li class="breadcrumb-item active">Default</li>
+          </ol>
+        </nav>
+        <form class="mb-9 form-container" action="/admin/addProducts" method="post" enctype="multipart/form-data" id="fileUploadForm">
+          <div class="row g-3 flex-between-center mb-5">
+            <div class="col-auto">
+              <h2 class="mb-2">Add a product</h2>
+              <h5 class="text-700 fw-semi-bold">Orders placed across your store</h5>
+            </div>
+            <div class="col-auto"><button class="btn btn-primary mb-2 mb-sm-0" type="submit">Publish product</button>
+            </div>
+          </div>
+          

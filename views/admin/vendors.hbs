@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Future Store</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="../../../assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="../../../assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="../admin/vendors/dropzone/dropzone.min.css" rel="stylesheet">
+    <link href="../admin/vendors/choices/choices.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="../admin/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+    <link href="../admin/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+</head>
+
+<body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container">
+            {{>admin-sidenav}}
+            {{>admin-vertical-nav}}
+            <div class="content">
+                <nav class="mb-2" aria-label="breadcrumb">
+                </nav>
+
+
+                <div class="content">
+                    <nav class="mb-2" aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#!">Page 1</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Page 2</a></li>
+                            <li class="breadcrumb-item active">Default</li>
+                        </ol>
+                    </nav>
+                    <div class="mb-9">
+                        <div class="row g-2 mb-4">
+                            <div class="col-auto">
+                                {{!-- {{#if category}}
+                                <h2 class="mb-2">Categories</h2>
+                                <h5 class="text-700 fw-semi-bold">Organize Product Categories all across your store</h5>
+                                {{else if subCategory}}
+                                <h2 class="mb-2">Sub Categories</h2>
+                                <h5 class="text-700 fw-semi-bold">Organize Product Sub Categories all across your store
+                                </h5>
+                                {{else}} --}}
+                                <h2 class="mb-2">Vendors</h2>
+                                {{!-- <h5 class="text-700 fw-semi-bold"></h5> --}}
+                                {{!-- {{/if}} --}}
+                            </div>
+                        </div>
+                        <ul class="nav nav-links mb-3 mb-lg-2 mx-n3">
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">All <span
+                                        class="text-700 fw-semi-bold">(68817)</span></a></li>
+                        </ul>
+                        <div id="products"
+                            data-list='{"valueNames":["customer","email","total-orders","total-spent","city","last-seen","last-order"],"page":10,"pagination":true}'>
+                            <div class="mb-4">
+                                <div class="row g-3">
+                                    <div class="col col-xl-auto">
+                                        <div class="search-box w-100" style="max-width:30rem;">
+                                            <form class="position-relative" data-bs-toggle="search"
+                                                data-bs-display="static"><input
+                                                    class="form-control form-control search-input search" type="search"
+                                                    placeholder="Search Categories" aria-label="Search" />
+                                                <span class="fas fa-search search-box-icon"></span>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white border-top border-bottom border-200 position-relative top-1">
+                                <div class="table-responsive scrollbar mx-n1 px-1">
+                                    {{!-- {{#if category}} --}}
+                                    {{!-- table for category --}}
+                                    {{!-- =========================== --}}
+                                    {{!-- <table class="table table-sm fs--1 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="customer"
+                                                    style="width:10%;">INDEX</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="email"
+                                                    style="width:15%;">CATEGORY NAME</th> --}}
+                                                {{!-- <th class="sort align-middle pe-5" scope="col"
+                                                    data-sort="total-orders" style="width:20%">SUB CATEGORIES</th> --}}
+                                                {{!-- <th class="sort align-middle text-center pe-5" scope="col"
+                                                    data-sort="total-spent" style="width:15%">ADDED DATE</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="city"
+                                                    style="width:15%;">UPDATED DATE</th>
+                                                <th class="sort align-middle text-end" scope="col" data-sort="last-seen"
+                                                    style="width:15%;">REVENUE</th>
+                                                <th class="align-middle text-end" scope="col" data-sort="last-seen"
+                                                    style="width:15%;"></th>
+                                                <th class="align-middle text-end" scope="col" data-sort="last-seen"
+                                                    style="width:15%;"></th> --}}
+
+                                                {{!--
+                                            </tr>
+                                        </thead>
+                                        {{#each data}}
+                                        <tbody class="list" id="table-latest-review-body">
+                                            <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+                                                <td
+                                                    class="total-orders align-middle white-space-nowrap fw-semi-bold text-start">
+                                                    {{@index}}</td>
+                                                <td class="customer align-middle white-space-nowrap pe-5"><a
+                                                        class="d-flex align-items-center" href="#!">
+                                                        <p class="mb-0 ms-3 text-900 fw-semi-bold">
+                                                            {{this.categoryTitle}}</p>
+                                                    </a></td> --}}
+                                                {{!-- <td class="email align-middle white-space-nowrap pe-5">
+                                                    {{#each this.subCategories}}
+                                                    <p>{{subCategoryTitle}}</p><br>
+                                                    {{/each}}
+
+                                                </td> --}}
+                                                {{!-- <td
+                                                    class="total-spent align-middle white-space-nowrap text-900 ps-7">
+                                                    {{this.createdDay}}-{{this.createdMonth}}-{{this.createdYear}}</td>
+                                                <td class="city align-middle white-space-nowrap text-900 ps-7">
+                                                    {{this.updatedDay}}-{{this.updatedMonth}}-{{this.updatedYear}}
+                                                </td>
+                                                <td class="last-seen align-middle white-space-nowrap text-700 text-end">
+                                                    $100000</td>
+                                                <td class=" align-middle white-space-nowrap text-700 text-end">
+                                                    <a class="btn btn-primary"
+                                                        href="admin/editCategory/{{this._id}}">EDIT</a>
+                                                </td>
+                                                <td class=" align-middle white-space-nowrap text-700 text-end">
+                                                    <a class="btn btn-danger"
+                                                        href="admin/deleteCategory/{{this._id}}">DELETE</a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                        {{/each}}
+
+                                    </table> --}}
+
+                                    {{!-- table for sub category --}}
+                                    {{!-- ================================ --}}
+                                    {{!-- {{else if subCategory}}
+                                    <table class="table table-sm fs--1 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="customer"
+                                                    style="width:10%;">INDEX</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="email"
+                                                    style="width:15%;">SUB CATEGORY NAME</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="total-orders"
+                                                    style="width:15%">CATEGORY</th>
+                                                <th class="sort align-middle text-center pe-5" scope="col"
+                                                    data-sort="total-spent" style="width:15%">ADDED DATE</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="city"
+                                                    style="width:15%;">UPDATED DATE</th>
+                                                <th class="sort align-middle text-end" scope="col" data-sort="last-seen"
+                                                    style="width:10%;">REVENUE</th>
+                                                <th class="align-middle text-end" scope="col" style="width:10%;"></th>
+                                                <th class="align-middle text-end" scope="col" style="width:10%;"></th>
+
+                                            </tr>
+                                        </thead>
+                                        {{#each data}}
+                                        <tbody class="list" id="table-latest-review-body">
+                                            <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+                                                <td
+                                                    class="total-orders align-middle white-space-nowrap fw-semi-bold text-start">
+                                                    {{@index}}</td>
+                                                <td class="customer align-middle white-space-nowrap pe-5"><a
+                                                        class="d-flex align-items-center" href="#!">
+                                                        <p class="mb-0 ms-3 text-900 fw-semi-bold">
+                                                            {{this.subCatTitle}}</p>
+                                                    </a></td>
+
+                                                <td class="customer align-middle white-space-nowrap pe-5"><a
+                                                        class="d-flex align-items-center" href="#!">
+                                                        <p class="mb-0 ms-3 text-900 fw-semi-bold">
+                                                            {{this.categoryId.categoryTitle}}</p>
+                                                    </a></td> --}}
+                                                {{!-- <td class="email align-middle white-space-nowrap pe-5">
+                                                    {{#each this.subCategories}}
+                                                    <p>{{subCategoryTitle}}</p><br>
+                                                    {{/each}}
+
+                                                </td> --}}
+                                                {{!-- <td
+                                                    class="total-spent align-middle white-space-nowrap text-900 ps-7">
+                                                    {{this.createdAt}}</td>
+                                                <td class="city align-middle white-space-nowrap text-900 ps-7">
+                                                    {{this.updatedAt}}
+                                                </td>
+                                                <td class="last-seen align-middle white-space-nowrap text-700 text-end">
+                                                    $100000</td>
+                                                <td class=" align-middle white-space-nowrap text-700 text-end">
+                                                    <a class="btn btn-primary"
+                                                        href="admin/editCategory/{{this._id}}">EDIT</a>
+                                                </td>
+                                                <td class=" align-middle white-space-nowrap text-700 text-end">
+                                                    <a class="btn btn-danger"
+                                                        href="admin/deleteCategory/{{this._id}}">DELETE</a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                        {{/each}}
+                                    </table> --}}
+
+                                    {{!-- table for vendors --}}
+                                    {{!-- {{else}} --}}
+                                    <table class="table table-sm fs--1 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="customer"
+                                                    style="width:10%;">INDEX</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="email"
+                                                    style="width:15%;">VENDOR</th>
+                                                <th class="sort align-middle text-center pe-5" scope="col"
+                                                    data-sort="total-spent" style="width:15%">ADDED DATE</th>
+                                                <th class="sort align-middle pe-5" scope="col" data-sort="city"
+                                                    style="width:15%;">UPDATED DATE</th>
+                                                <th class="sort align-middle text-end" scope="col" data-sort="last-seen"
+                                                    style="width:10%;">REVENUE</th>
+                                                <th class="align-middle text-end" scope="col" style="width:10%;"></th>
+                                                <th class="align-middle text-end" scope="col" style="width:10%;"></th>
+
+                                            </tr>
+                                        </thead>
+                                        {{#each data}}
+                                        <tbody class="list" id="table-latest-review-body">
+                                            <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+                                                <td
+                                                    class="total-orders align-middle white-space-nowrap fw-semi-bold text-start">
+                                                    {{inc1 @index}}</td>
+                                                <td class="customer align-middle white-space-nowrap pe-5"><a
+                                                        class="d-flex align-items-center" href="#!">
+                                                        <p class="mb-0 ms-3 text-900 fw-semi-bold">
+                                                            {{this.vendorName}}</p>
+                                                    </a></td>
+                                                <td class="total-spent align-middle white-space-nowrap text-900 ps-7">
+                                                    {{formatString this.createdAt}}</td>
+                                                <td class="city align-middle white-space-nowrap text-900 ps-7">
+                                                    {{formatString this.updatedAt}}
+                                                </td>
+                                                <td class="last-seen align-middle white-space-nowrap text-700 text-end">
+                                                    $100000</td>
+                                                <td class=" align-middle white-space-nowrap text-700 text-end">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#modal{{this._id}}">
+                                                        Edit
+                                                    </button>
+                                                </td>
+                                                <td class=" align-middle white-space-nowrap text-700 text-end">
+                                                    <a class="btn btn-danger"
+                                                        href="admin/deleteVendor/{{this._id}}">DELETE</a>
+                                                </td>
+                                            </tr>
+                                            {{!-- ==========================modal================================= --}}
+                                            <div class="modal fade" id="modal{{this._id}}" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                                {{this.vendorName}}
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="frm">
+                                                            <form action="/admin/editVendor/{{this._id}}" method="post">
+                                                                <div class="modal-body">
+                                                                    {{!-- ================this is modal
+                                                                    body===============
+                                                                    --}}
+
+                                                                    <div class="mb-3">
+                                                                        <label for="subCat" class="form-label">ENTE NEW
+                                                                            NAME</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="subCat" aria-describedby="subCatHelp"
+                                                                            value="{{this.vendorName}}" name="new">
+                                                                        <div id="subCatHelp" class="form-text">ENTER A
+                                                                            NEW
+                                                                            NAME FOR {{this.vendorName}}</div>
+                                                                    </div>
+
+                                                                    {{!-- <div class="mb-3">
+                                                                        <select class="form-select"
+                                                                            aria-label="Default select example"
+                                                                            name="newCat">
+
+                                                                            <option value="1" selected>
+                                                                                {{this.categoryTitle}}</option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                    --}}
+
+
+                                                                    {{!-- .................modal BODY
+                                                                    ENDS......................... --}}
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                        changes</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                        </tbody>
+                                        {{/each}}
+                                    </table>
+                                    {{!-- {{/if}} --}}
+
+                                </div>
+                                <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
+                                    <div class="col-auto d-flex">
+                                        <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900"
+                                            data-list-info="data-list-info"></p><a class="fw-semi-bold" href="#!"
+                                            data-list-view="*">View all<span class="fas fa-angle-right ms-1"
+                                                data-fa-transform="down-1"></span></a><a class="fw-semi-bold d-none"
+                                            href="#!" data-list-view="less">View Less<span
+                                                class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                                    </div>
+                                    <div class="col-auto d-flex"><button class="page-link"
+                                            data-list-pagination="prev"><span
+                                                class="fas fa-chevron-left"></span></button>
+                                        <ul class="mb-0 pagination"></ul><button class="page-link"
+                                            data-list-pagination="next"><span
+                                                class="fas fa-chevron-right"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                {{!-- <div class="row g-3 flex-between-center mb-5">
+                    <div class="col-auto">
+                        <h2 class="mb-2">Add Categories</h2>
+                    </div>
+                </div>
+                <h4 class="mb-3">Category Title</h4>
+                <div class="row g-5">
+                    <div class="col-12 col-xl-8 mb-5">
+                        <form action="/admin/addCategory" method="post"><input class="form-control mb-5" type="text"
+                                placeholder="Write title here..." name="title" /><button class="btn btn-primary"><span
+                                    class="fas fa-plus me-2"></span>Add category</button></form>
+                    </div> --}}
+                </div>
+                {{!-- <div class="col-12 col-xl-4">
+                    <div class="row g-2">
+                        <div class="col-12 col-xl-12">
+
+                            <form action="/admin/addSubcategory" method="post">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Organize Sub-Categories</h4>
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-xl-12">
+                                                <div class="mb-4">
+                                                    <div class="d-flex flex-wrap justify-content-between mb-2">
+                                                        <h5>Select a Category</h5>
+                                                    </div><select class="form-select mb-3" aria-label="category"
+                                                        name="categoryTitle">
+                                                        {{#each data}}
+                                                        <option value="{{this.categoryTitle}}">{{this.categoryTitle}}
+                                                        </option>
+                                                        {{/each}}
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-xl-12">
+                                                <div class="mb-4">
+                                                    <div class="d-flex flex-wrap justify-content-between mb-2">
+                                                        <h5>Add Sub-category</h5>
+                                                    </div>
+                                                    <input class="form-control mb-3" type="text"
+                                                        placeholder="Sub-Category" name="subCategory" /><button
+                                                        class="btn btn-primary " type="submit"><span
+                                                            class="fas fa-plus me-2"></span>Add
+                                                        Sub-category</button>
+                            </form>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        {{!-- </form> --}}
+        </div>
+        {{!-- </div> --}}
+
+    </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="../admin/vendors/popper/popper.min.js"></script>
+    <script src="../admin/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="../admin/vendors/anchorjs/anchor.min.js"></script>
+    <script src="../admin/vendors/is/is.min.js"></script>
+    <script src="../admin/vendors/fontawesome/all.min.js"></script>
+    <script src="../admin/vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="../admin/vendors/list.js/list.min.js"></script>
+    <script src="../admin/vendors/feather-icons/feather.min.js"></script>
+    <script src="../admin/vendors/dayjs/dayjs.min.js"></script>
+    <script src="../admin/vendors/tinymce/tinymce.min.js"></script>
+    <script src="../admin/vendors/dropzone/dropzone.min.js"></script>
+    <script src="../admin/vendors/choices/choices.min.js"></script>
+    <script src="../admin/assets/js/phoenix.js"></script>
+</body>
+
+</html>

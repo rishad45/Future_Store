@@ -1,0 +1,159 @@
+<nav class="navbar navbar-light navbar-vertical navbar-vibrant navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content scrollbar">
+            <ul class="navbar-nav flex-column" id="navbarVerticalNav">
+                <li class="nav-item">
+                    <!-- parent pages--><a class="nav-link dropdown-indicator" href="#dashboard" role="button"
+                        data-bs-toggle="collapse" aria-expanded="true" aria-controls="dashboard">
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown-indicator-icon d-flex flex-center"><span
+                                    class="fas fa-caret-right fs-0"></span></div><span class="nav-link-icon"><span
+                                    data-feather="cast"></span></span><span class="nav-link-text">Dashboard</span>
+                        </div>
+                    </a>
+                    <ul class="nav collapse parent show" id="dashboard">
+                        <li class="nav-item"><a class="nav-link active" href="/admin/home" data-bs-toggle=""
+                                aria-expanded="false">
+                                <div class="d-flex align-items-center"><span class="nav-link-text">Dashboard</span>
+                                </div>
+                            </a><!-- more inner pages-->
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+
+                    <!-- label-->
+                    <p class="navbar-vertical-label">Controls</p><!-- parent pages--><a
+                        class="nav-link dropdown-indicator" href="#e-commerce" role="button" data-bs-toggle="collapse"
+                        aria-expanded="false" aria-controls="e-commerce">
+                        <div class="d-flex align-items-center">
+                            <div class="dropdown-indicator-icon d-flex flex-center"><span
+                                    class="fas fa-caret-right fs-0"></span></div><span class="nav-link-icon"><span
+                                    data-feather="shopping-cart"></span></span><span class="nav-link-text">Future Store
+                            </span>
+                        </div>
+                    </a>
+                    <ul class="nav collapse parent" id="e-commerce">
+
+                        <li class="nav-item"><a class="nav-link dropdown-indicator" href="#admin"
+                                data-bs-toggle="collapse" aria-expanded="true" aria-controls="e-commerce">
+                                <div class="d-flex align-items-center">
+                                    <div class="dropdown-indicator-icon d-flex flex-center"><span
+                                            class="fas fa-caret-right fs-0"></span></div><span
+                                        class="nav-link-text">Products</span>
+                                </div>
+                            </a><!-- more inner pages-->
+                            <ul class="nav collapse parent show" id="admin">
+                                <li class="nav-item"><a class="nav-link" href="/admin/products" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">
+                                                products</span></div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/addProducts" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Add
+                                                Products</span></div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/categories" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text">Categories</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                <li class="nav-item"><a class="nav-link" href="/admin/subCategories" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Sub
+                                                Categories</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/vendor" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span
+                                                class="nav-link-text">vendors</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/addCategories" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Add
+                                                Categories</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="/admin/orders" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Orders</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+
+                                <li class="nav-item"><a class="nav-link" href="/admin/couponManagement"
+                                        data-bs-toggle="" aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Coupon
+                                                Management</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                
+                                {{!-- BANNER MANAGEMENT  --}}
+                                <li class="nav-item"><a class="nav-link" href="/admin/bannerManagement"
+                                        data-bs-toggle="" aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Banner Management</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link dropdown-indicator" href="#landing"
+                                data-bs-toggle="collapse" aria-expanded="true" aria-controls="e-commerce">
+                                <div class="d-flex align-items-center">
+                                    <div class="dropdown-indicator-icon d-flex flex-center"><span
+                                            class="fas fa-caret-right fs-0"></span></div><span
+                                        class="nav-link-text">Customers</span>
+                                </div>
+                            </a><!-- more inner pages-->
+                            <ul class="nav collapse parent show" id="landing">
+                                <li class="nav-item"><a class="nav-link" href="/admin/users" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Users</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="apps/e-commerce/landing/homepage.html"
+                                        data-bs-toggle="" aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Edit
+                                                Users</span></div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link dropdown-indicator" href="#landing"
+                                data-bs-toggle="collapse" aria-expanded="true" aria-controls="e-commerce">
+                                <div class="d-flex align-items-center">
+                                    <div class="dropdown-indicator-icon d-flex flex-center"><span
+                                            class="fas fa-caret-right fs-0"></span></div><span
+                                        class="nav-link-text">Sales Report</span>
+                                </div>
+                            </a><!-- more inner pages-->
+                            <ul class="nav collapse parent show" id="landing">
+                                <li class="nav-item"><a class="nav-link" href="/admin/salesReport" data-bs-toggle=""
+                                        aria-expanded="false">
+                                        <div class="d-flex align-items-center"><span class="nav-link-text">Sales Report</span>
+                                        </div>
+                                    </a><!-- more inner pages-->
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <div class="navbar-vertical-footer"><a class="btn btn-link border-0 fw-semi-bold d-flex ps-0"
+                href="pages/authentication/simple/sign-out.html"><span class="navbar-vertical-footer-icon"
+                    data-feather="log-out"></span><span>Sign out</span></a></div>
+    </div>
+</nav>

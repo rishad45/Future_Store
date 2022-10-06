@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>HONO - Multi Purpose HTML Template</title>
+
+    <!-- ::::::::::::::Favicon icon::::::::::::::-->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/png">
+
+    <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/ionicons.css">
+    <link rel="stylesheet" href="assets/css/vendor/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css"> -->
+
+    <!-- Plugin CSS -->
+    <!-- <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/venobox.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/jquery.lineProgressbar.css">
+    <link rel="stylesheet" href="assets/css/plugins/aos.min.css"> -->
+
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="assets/sass/style.css"> -->
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <link rel="shortcut icon" href="user/images/favicon.ico" type="image/png">
+    <link rel="stylesheet" href="user/css/vendor/vendor.min.css">
+    <link rel="stylesheet" href="user/css/plugins/plugins.min.css">
+    <link rel="stylesheet" href="user/css/style.min.css">
+    <link rel="stylesheet" href="./user/css/userProfile.css">
+    <link rel="stylesheet" href="./user/css/coupon.css">
+
+
+</head>
+
+<body>
+    <!-- Start Header Area -->
+
+    <!-- Start Header Area -->
+
+    <!-- Start Mobile Header -->
+
+    <!-- End Mobile Header -->
+
+    <!--  Start Offcanvas Mobile Menu Section -->
+
+
+    <!-- Start Offcanvas Mobile Menu Section -->
+
+
+    <!-- Start Offcanvas Addcart Section -->
+
+    <!-- End  Offcanvas Addcart Section -->
+
+    <!-- Start Offcanvas Mobile Menu Section -->
+
+
+    {{>header}}
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section breadcrumb-bg-color--golden">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="breadcrumb-title">My Account</h3>
+                        <div class="breadcrumb-nav breadcrumb-nav-color--black breadcrumb-nav-hover-color--golden">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="shop-grid-sidebar-left.html">Shop</a></li>
+                                    <li class="active" aria-current="page">My Account</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Account Dashboard Section:::... -->
+    <div class="account-dashboard">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3" style="sticky-top">
+                    <!-- Nav tabs -->
+                    <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
+
+                        <ul role="tablist" class="nav flex-column dashboard-list">
+                            <li><a href="#dashboard" data-bs-toggle="tab"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover active">Dashboard</a>
+                            </li>
+                            <li><a href="#orders" data-bs-toggle="tab"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover"><span
+                                        class="fa fa-user mr-2"></span> manage Addresses</a>
+                            </li>
+                            <li><a href="#downloads" data-bs-toggle="tab"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover"><span
+                                        class="fa fa-gift mr-2"></span> Gifts and Coupons</a>
+                            </li>
+                            <li><a href="/myOrders" class="btn btn-block btn-md btn-black-default-hover"><span
+                                        class="fa fa-setting mr-2"></span>My Orders</a>
+                            </li>
+                            <li><a href="#account-details" data-bs-toggle="tab"
+                                    class="nav-link btn btn-block btn-md btn-black-default-hover"><span
+                                        class="fa fa-setting mr-2"></span>Account Settings</a>
+                            </li>
+                            <li><a href="/logout" class="nav-link btn btn-block btn-md btn-pink">logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
+                        {{!-- ==================================== D A S H B O A R D
+                        ==================================== --}}
+
+                        <div class="tab-pane fade show active" id="dashboard">
+                            {{!-- ==================== --}}
+
+                            <div class="container mt-0 mb-4 p-2 d-flex justify-content-center">
+                                <div class="userProfilecard p-4">
+                                    <div
+                                        class="userProfileImage d-flex flex-column justify-content-center align-items-center">
+                                        <button class="userProfileBtn btn-secondary"> <img
+                                                src="https://i.imgur.com/wvxPV9S.png" height="100"
+                                                width="100" /></button> <span class="userProfileName mt-3">Sunu
+                                        </span> <span class="profileidd">sunu@gmail.com</span>
+                                        {{!-- <div
+                                            class="d-flex flex-row justify-content-center align-items-center gap-2">
+                                            <span class="profileidd1">Oxc4c16a645_b21a</span> <span><i
+                                                    class="fa fa-copy"></i></span>
+                                        </div> --}}
+                                        <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+                                            <span class="userProfileNumber">5 <span
+                                                    class="userProfileFollow">Orders</span></span>
+                                        </div>
+                                        <div class=" d-flex mt-2"> <button class="userProfilebtn1 btn-dark">Edit
+                                                Avatar</button>
+                                        </div>
+                                        {{!-- <div class="userProfiletext mt-3"> <span>Eleanor Pena is a creator of
+                                                minimalistic x bold
+                                                graphics and digital artwork.<br><br> Artist/ Creative Director by Day
+                                                #NFT minting@ with FND night. </span> </div> --}}
+                                        {{!-- <div
+                                            class="gap-3 mt-3 userProfileicons d-flex flex-row justify-content-center align-items-center">
+                                            <span><i class="fa fa-twitter"></i></span> <span><i
+                                                    class="fa fa-facebook-f"></i></span> <span><i
+                                                    class="fa fa-instagram"></i></span> <span><i
+                                                    class="fa fa-linkedin"></i></span>
+                                        </div> --}}
+                                        <div class=" px-2 rounded mt-4 userProfiledate "> <span
+                                                class="userProfilejoin">Joined May,2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{!-- ================================== D A S H B O A R D =========================== --}}
+
+
+                        {{!-- ================================== O R D E R S address=========================== --}}
+                        {{!-- ========================================================================== --}}
+
+                        <div class="tab-pane fade" id="orders">
+                            <h4 class="ml-2"> MANAGE ADDRESSES</h4>
+                            <div class="container" id="addressDiv">
+                                <div class="row">
+                                    <div class="col-12 mt-3 mb-2">
+                                        <button type="button" class="btn btn-secondary btn-lg btn-block"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span
+                                                class="fa fa-plus"></span> Add new Address</button>
+                                        </button>
+                                    </div>
+                                    {{#each address}}
+                                    <div class="col-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{this.fullname}}</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted">{{this.mobile}}</h6>
+                                                <p class="card-text">{{this.locality}} <br> {{this.city}},
+                                                    {{this.state}}<br> {{this.pincode}}</p>
+                                                <button class="card-link text-success"
+                                                    onclick="updateAddress('{{this._id}}') "> edit </button>
+                                                <button class="card-link text-danger"
+                                                    onclick="deleteAddress('{{this._id}}') "> delete </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">CREATE NEW ADDRESS</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form id="createAddress">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="default-form-box">
+                                                        <label>Full Name <span>*</span></label>
+                                                        <input type="text" name="fullName" id="fullName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="default-form-box">
+                                                        <label>10 digit mobile number <span>*</span></label>
+                                                        <input type="text" name="mobile">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="default-form-box">
+                                                        <label>Pincode</label>
+                                                        <input type="text" name="pincode">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="default-form-box">
+                                                        <label>Locality</label>
+                                                        <input type="text" name="locality">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="default-form-box">
+                                                        <label>Address</label>
+                                                        <textarea name="address" id="" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="select_form_select default-form-box">
+                                                        <label for="stat_name">country <span>*</span></label>
+                                                        <select class="niceselect_option wide" name="state"
+                                                            id="state_name">
+                                                            <option value="kerala">kerala</option>
+                                                            <option value="punjab">punjab</option>
+                                                            <option value="haryana">haryana</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="default-form-box">
+                                                        <label>City/district/Town<span>*</span></label>
+                                                        <input placeholder="City/district/Town" type="text" name="city">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="default-form-box">
+                                                        <label>Landmark<span>*</span></label>
+                                                        <input type="text" name="landmark">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="default-form-box">
+                                                        <label>Alternate Phone<span>*</span></label>
+                                                        <input type="text" name="altPhone">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="default-form-box">
+                                                        <label> Email Address <span>*</span></label>
+                                                        <input type="text" name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <input type="radio" name="addType" id="home" value="home">
+                                                    <label for="home">HOME</label>
+                                                    <input type="radio" name="addType" id="office" value="office">
+                                                    <label for="office">OFFICE</label>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary" id="save">SAVE
+                                                ADDRESS</button>
+                                        </div>
+
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {{!-- ================================== O R D E R S =========================== --}}
+                        {{!-- ========================================================================== --}}
+
+
+
+                        <div class="tab-pane fade" id="downloads">
+                            {{!-- ================================== C O U P O N S ======================== --}}
+                            {{!-- ========================================================================== --}}
+
+
+                            <h4 class="mb-5">GIFTS AND COUPONS</h4>
+                            <div class="row">
+                                {{#each coupons}}
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="cardCoupon border">
+                                        <div class="mainCoupon">
+                                            <div class="co-imgCoup">
+                                                <img src="https://i.pinimg.com/originals/c7/84/67/c78467db9ff497393cb548a48f02d451.png"
+                                                    alt="" />
+                                            </div>
+                                            <div class="verticalCoupon"></div>
+                                            <div class="contentCoupon">
+                                                <h2>Future Store</h2>
+                                                <h1>{{couponDetails.discPercentage}}% <span>Coupon</span></h1>
+                                                <p class="p">Valid till {{formatString couponDetails.expiryDate}}</p>
+                                                <p>Minimum spend :<span class="text-danger">
+                                                        ${{couponDetails.minimumSpend}}</span></p>
+
+
+                                            </div>
+                                        </div>
+                                        {{#if coupons.redeemed}} 
+                                        <div class="copy-button">
+                                            
+                                            {{!-- <input id="copyvalue" type="text" readonly
+                                                value="" disabled/> --}}
+                                            <button class="copybtn" disabled >REDEEMED</button>
+                                        </div>
+                                        {{else}}
+                                        <div class="copy-button">
+                                            <input id="copyvalue" type="text" readonly
+                                                value="{{couponDetails.couponCode}}" />
+                                            <button onclick="copyIt()" class="copybtn">COPY</button>
+                                        </div>
+                                        
+                                        {{/if}} 
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                        {{!-- ================================== C O U P O N S ======================== --}}
+                        {{!-- ========================================================================== --}}
+
+
+
+                        <div class="tab-pane" id="address">
+                            <p>The following addresses will be used on the checkout page by default.</p>
+                            <h5 class="billing-address">Billing address</h5>
+                            <a href="#" class="view">Edit</a>
+                            <p><strong>Bobby Jackson</strong></p>
+                            <address>
+                                Address: Your address goes here.
+                            </address>
+                        </div>
+
+                        {{!-- ================================== E D I T P R O F I L E ======================== --}}
+                        {{!-- ========================================================================== --}}
+
+                        <div class="tab-pane fade" id="account-details">
+                            <div class="login">
+                                <div class="login_form_container">
+                                    <div class="account_login_form">
+
+
+                                        <div class="container mb-5" id="fullNameDiv">
+                                            <div class="row">
+
+                                                <div class="default-form-box mb-20 col-6">
+                                                    <h3 class="mb-4">Personal Information </h3>
+
+                                                    <label><b>Full Name</b> <button class="edit text-primary"
+                                                            id="editButton" onclick="editButton()">Edit</button>
+                                                        <button class="text-primary disable" id="cancel"
+                                                            onclick="cancelButton()" hidden>Cancel</button></label>
+
+                                                    <input type="text" class="disable" name="firstName"
+                                                        placeholder="{{user.username}}" value="{{user.username}}"
+                                                        disabled style="width: 50%;cursor:not-allowed" id="newName"
+                                                        required>
+                                                    <span>
+                                                        <button class="btn btn-md btn-primary " id="saveName" hidden
+                                                            onclick="saveName('{{user._id}}')">Save</button>
+                                                    </span>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+                                        {{!-- email address input box starts......... --}}
+                                        <div class="container mb-5" id="emailDiv">
+                                            <div class="row">
+
+                                                <div class="default-form-box mb-20 col-6">
+                                                    <label><b>Email Address</b>
+                                                        <button class="text-primary" id="emailEdit"
+                                                            onclick="emailEditButton()">Edit</button>
+                                                        <button class="text-primary" id="emailcancel" hidden
+                                                            onclick="emailCancelButton()">Cancel</button>
+
+                                                        <button class="text-primary"
+                                                            onclick="changePassword('{{user._id}}','{{user.mobile}}')">Change
+                                                            Password</button></label>
+
+                                                    <input type="text" class="emailEditBox" placeholder="{{user.email}}"
+                                                        name="email" value="{{user.email}}"
+                                                        style="width: 50%; cursor:not-allowed"
+                                                        style="border-color: red;" id="newEmail" required>
+                                                    <span><button class="btn btn-md btn-primary" id="emailSave"
+                                                            onclick="changeEmail('{{user._id}}')"
+                                                            hidden>Save</button></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        {{!-- modal --}}
+                                        <div class="modal" id="myModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="def" aria-hidden="true">
+                                            <div class="modal-dialog modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="def">Small Modal</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="container">
+                                                            <p>Some short content, such as a login form.</p>
+
+                                                            <table class="form">
+                                                                <tr>
+                                                                    <td><input type="text" class="form-control"
+                                                                            placeholder="Name"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="text" class="form-control"
+                                                                            placeholder="Password"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-dismiss="modal">OK</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{!-- mobile number changing input box --}}
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <div class="default-form-box mb-20 col-6" id="mobileDiv">
+                                                    <label><b>Phone number</b><button class="text-primary"
+                                                            id="mobileEdit"
+                                                            onclick="editMobileButton()">Edit</button><button
+                                                            class="text-primary" id="mobileEditCancel" hidden
+                                                            onclick="mobileCancelButton('{{user._id}})">Cancel</button></label>
+
+                                                    <input type="text" class="mobileEditBox" name="newMobile"
+                                                        placeholder="{{user.mobile}}" value="{{user.mobile}}"
+                                                        style="width: 50%; cursor:not-allowed" id="newMobile" required>
+                                                    <span><button class="btn btn-md btn-primary" id="saveMobile"
+                                                            onclick="changeMobile('{{user._id}}')"
+                                                            hidden>Save</button></span>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Account Dashboard Section:::... -->
+
+    <!-- Start Footer Section -->
+    <footer class="footer-section footer-bg section-top-gap-100">
+        <div class="footer-wrapper">
+            <!-- Start Footer Top -->
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row mb-n6">
+                        <div class="col-lg-3 col-sm-6 mb-6">
+                            <!-- Start Footer Single Item -->
+                            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+                                data-aos-delay="0">
+                                <h5 class="title">INFORMATION</h5>
+                                <ul class="footer-nav">
+                                    <li><a href="#">Delivery Information</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                    <li><a href="#">Returns</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Footer Single Item -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-6">
+                            <!-- Start Footer Single Item -->
+                            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+                                data-aos-delay="200">
+                                <h5 class="title">MY ACCOUNT</h5>
+                                <ul class="footer-nav">
+                                    <li><a href="my-account.html">My account</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="faq.html">Frequently Questions</a></li>
+                                    <li><a href="#">Order History</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Footer Single Item -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-6">
+                            <!-- Start Footer Single Item -->
+                            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+                                data-aos-delay="400">
+                                <h5 class="title">CATEGORIES</h5>
+                                <ul class="footer-nav">
+                                    <li><a href="#">Decorative</a></li>
+                                    <li><a href="#">Kitchen utensils</a></li>
+                                    <li><a href="#">Chair & Bar stools</a></li>
+                                    <li><a href="#">Sofas and Armchairs</a></li>
+                                    <li><a href="#">Interior lighting</a></li>
+                                </ul>
+                            </div>
+                            <!-- End Footer Single Item -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6 mb-6">
+                            <!-- Start Footer Single Item -->
+                            <div class="footer-widget-single-item footer-widget-color--golden" data-aos="fade-up"
+                                data-aos-delay="600">
+                                <h5 class="title">ABOUT US</h5>
+                                <div class="footer-about">
+                                    <p>We are a team of designers and developers that create high quality Magento,
+                                        Prestashop, Opencart.</p>
+
+                                    <address class="address">
+                                        <span>Address: Your address goes here.</span>
+                                        <span>Email: demo@example.com</span>
+                                    </address>
+                                </div>
+                            </div>
+                            <!-- End Footer Single Item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Top -->
+
+            <!-- Start Footer Center -->
+            <div class="footer-center">
+                <div class="container">
+                    <div class="row mb-n6">
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-6">
+                            <div class="footer-social" data-aos="fade-up" data-aos-delay="0">
+                                <h4 class="title">FOLLOW US</h4>
+                                <ul class="footer-social-link">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-6 col-md-6 mb-6">
+                            <div class="footer-newsletter" data-aos="fade-up" data-aos-delay="200">
+                                <h4 class="title">DON'T MISS OUT ON THE LATEST</h4>
+                                <div class="form-newsletter">
+                                    <form action="#" method="post">
+                                        <div class="form-fild-newsletter-single-item input-color--golden">
+                                            <input type="email" placeholder="Your email address..." required>
+                                            <button type="submit">SUBSCRIBE!</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Center -->
+
+            <!-- Start Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <div
+                        class="row justify-content-between align-items-center align-items-center flex-column flex-md-row mb-n6">
+                        <div class="col-auto mb-6">
+                            <div class="footer-copyright">
+                                <p class="copyright-text">&copy; 2021 <a href="index.html">therankme</a>. Made with <i
+                                        class="fa fa-heart text-danger"></i> by <a href="https://therankme.com/"
+                                        target="_blank">therankme</a> </p>
+
+                            </div>
+                        </div>
+                        <div class="col-auto mb-6">
+                            <div class="footer-payment">
+                                <div class="image">
+                                    <img src="assets/images/company-logo/payment.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Footer Bottom -->
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- material-scrolltop button -->
+    <button class="material-scrolltop" type="button"></button>
+
+    <!-- Start Modal Add cart -->
+    <div class="modal fade" id="modalAddcart" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col text-right">
+                                <button type="button" class="close modal-close" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true"> <i class="fa fa-times"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="modal-add-cart-product-img">
+                                            <img class="img-fluid"
+                                                src="assets/images/product/default/home-1/default-1.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="modal-add-cart-info"><i class="fa fa-check-square"></i>Added to cart
+                                            successfully!</div>
+                                        <div class="modal-add-cart-product-cart-buttons">
+                                            <a href="cart.html">View Cart</a>
+                                            <a href="checkout.html">Checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 modal-border">
+                                <ul class="modal-add-cart-product-shipping-info">
+                                    <li> <strong><i class="icon-shopping-cart"></i> There Are 5 Items In Your
+                                            Cart.</strong></li>
+                                    <li> <strong>TOTAL PRICE: </strong> <span>$187.00</span></li>
+                                    <li class="modal-continue-button"><a href="#" data-bs-dismiss="modal">CONTINUE
+                                            SHOPPING</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Modal Add cart -->
+
+    <!-- Start Modal Quickview cart -->
+    <div class="modal fade" id="modalQuickview" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col text-right">
+                                <button type="button" class="close modal-close" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true"> <i class="fa fa-times"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="product-details-gallery-area mb-7">
+                                    <!-- Start Large Image -->
+                                    <div class="product-large-image modal-product-image-large swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <div class="product-image-large-image swiper-slide img-responsive">
+                                                <img src="assets/images/product/default/home-1/default-1.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-large-image swiper-slide img-responsive">
+                                                <img src="assets/images/product/default/home-1/default-2.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-large-image swiper-slide img-responsive">
+                                                <img src="assets/images/product/default/home-1/default-3.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-large-image swiper-slide img-responsive">
+                                                <img src="assets/images/product/default/home-1/default-4.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-large-image swiper-slide img-responsive">
+                                                <img src="assets/images/product/default/home-1/default-5.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-large-image swiper-slide img-responsive">
+                                                <img src="assets/images/product/default/home-1/default-6.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Large Image -->
+                                    <!-- Start Thumbnail Image -->
+                                    <div
+                                        class="product-image-thumb modal-product-image-thumb swiper-container pos-relative mt-5">
+                                        <div class="swiper-wrapper">
+                                            <div class="product-image-thumb-single swiper-slide">
+                                                <img class="img-fluid"
+                                                    src="assets/images/product/default/home-1/default-1.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-thumb-single swiper-slide">
+                                                <img class="img-fluid"
+                                                    src="assets/images/product/default/home-1/default-2.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-thumb-single swiper-slide">
+                                                <img class="img-fluid"
+                                                    src="assets/images/product/default/home-1/default-3.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-thumb-single swiper-slide">
+                                                <img class="img-fluid"
+                                                    src="assets/images/product/default/home-1/default-4.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-thumb-single swiper-slide">
+                                                <img class="img-fluid"
+                                                    src="assets/images/product/default/home-1/default-5.jpg" alt="">
+                                            </div>
+                                            <div class="product-image-thumb-single swiper-slide">
+                                                <img class="img-fluid"
+                                                    src="assets/images/product/default/home-1/default-6.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <!-- Add Arrows -->
+                                        <div class="gallery-thumb-arrow swiper-button-next"></div>
+                                        <div class="gallery-thumb-arrow swiper-button-prev"></div>
+                                    </div>
+                                    <!-- End Thumbnail Image -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="modal-product-details-content-area">
+                                    <!-- Start  Product Details Text Area-->
+                                    <div class="product-details-text">
+                                        <h4 class="title">Nonstick Dishwasher PFOA</h4>
+                                        <div class="price"><del>$70.00</del>$80.00</div>
+                                    </div> <!-- End  Product Details Text Area-->
+                                    <!-- Start Product Variable Area -->
+                                    <div class="product-details-variable">
+                                        <!-- Product Variable Single Item -->
+                                        <div class="variable-single-item">
+                                            <span>Color</span>
+                                            <div class="product-variable-color">
+                                                <label for="modal-product-color-red">
+                                                    <input name="modal-product-color" id="modal-product-color-red"
+                                                        class="color-select" type="radio" checked>
+                                                    <span class="product-color-red"></span>
+                                                </label>
+                                                <label for="modal-product-color-tomato">
+                                                    <input name="modal-product-color" id="modal-product-color-tomato"
+                                                        class="color-select" type="radio">
+                                                    <span class="product-color-tomato"></span>
+                                                </label>
+                                                <label for="modal-product-color-green">
+                                                    <input name="modal-product-color" id="modal-product-color-green"
+                                                        class="color-select" type="radio">
+                                                    <span class="product-color-green"></span>
+                                                </label>
+                                                <label for="modal-product-color-light-green">
+                                                    <input name="modal-product-color"
+                                                        id="modal-product-color-light-green" class="color-select"
+                                                        type="radio">
+                                                    <span class="product-color-light-green"></span>
+                                                </label>
+                                                <label for="modal-product-color-blue">
+                                                    <input name="modal-product-color" id="modal-product-color-blue"
+                                                        class="color-select" type="radio">
+                                                    <span class="product-color-blue"></span>
+                                                </label>
+                                                <label for="modal-product-color-light-blue">
+                                                    <input name="modal-product-color"
+                                                        id="modal-product-color-light-blue" class="color-select"
+                                                        type="radio">
+                                                    <span class="product-color-light-blue"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Product Variable Single Item -->
+                                        <div class="d-flex align-items-center flex-wrap">
+                                            <div class="variable-single-item ">
+                                                <span>Quantity</span>
+                                                <div class="product-variable-quantity">
+                                                    <input min="1" max="100" value="1" type="number">
+                                                </div>
+                                            </div>
+
+                                            <div class="product-add-to-cart-btn">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalAddcart">Add To
+                                                    Cart</a>
+                                            </div>
+                                        </div>
+                                    </div> <!-- End Product Variable Area -->
+                                    <div class="modal-product-about-text">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste
+                                            laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam
+                                            in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel
+                                            recusandae</p>
+                                    </div>
+                                    <!-- Start  Product Details Social Area-->
+                                    <div class="modal-product-details-social">
+                                        <span class="title">SHARE THIS PRODUCT</span>
+                                        <ul>
+                                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                            <li><a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                                            </li>
+                                            <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                        </ul>
+
+                                    </div> <!-- End  Product Details Social Area-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Modal Quickview cart -->
+    <script src="/user/js/coupons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+    <script>
+        //function changePassword(id, mobile) {
+         //   var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+            //    keyboard: false
+        //    })
+         //   myModal.show()
+
+         //   let data = {}
+         //   data._id = id
+        //    data.mobile = mobile
+         //   console.log(data)
+        //    axios.post('/changePassword', data).then((res) => {
+        //        alert('hey')
+        //    })
+    //    }
+   // </script>
+
+
+
+
+
+
+
+    {{!-- Use the minified version files listed below for better performance and remove the files listed above --}}
+
+
+
+    <script src="user/js/editInfo.js"></script>
+    <script src="user/js/vendor/vendor.min.js"></script>
+    <script src="user/js/plugins/plugins.min.js"></script>
+    <script src="/user/js/vendor/vendor.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/user/js/plugins/plugins.min.js"></script>
+
+
+
+    <!-- Main JS -->
+    {{!--
+    <script src="user/js/main.js"></script> --}}
+    {{!--
+    <script src="user/js/coupon.js"></script> --}}
+
+
+
+
+</body>
+
+</html>

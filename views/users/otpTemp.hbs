@@ -1,0 +1,64 @@
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+
+    .h-custom {
+        height: calc(100% - 73px);
+    }
+
+    @media (max-width: 450px) {
+        .h-custom {
+            height: 100%;
+        }
+</style>
+
+<body>
+
+
+    <section class="vh-100 mb-5">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5 mb-3 mt-5">
+                    <img src="/user/images/banner/metExplore.jpg" class="img-fluid" alt="Sample image">
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <small>code has been send to {{mobile}}</small>
+
+                    <form method="post" action="/otp" class="mt-4"> 
+
+
+                        <div class="form-outline mb-4">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="enter otp"
+                                name="otp">
+                            <input type="hidden" name="name" value={{user1.name}}>
+                            <input type="hidden" name="email" value={{user1.email}}>
+                            <input type="hidden" name="mobile" value={{user1.mobile}}>
+                            <input type="hidden" name="password" value={{user1.password}}>
+                            <input type="hidden" name="rePassword" value={{user1.rePassword}}>
+                        </div>
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" name="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">verify</button>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <a href="" class="text-body">Resend OTP? </a>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://kit.fontawesome.com/00d589803f.js" crossorigin="anonymous"></script>
+</body>

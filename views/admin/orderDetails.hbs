@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Phoenix</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+   <link rel="apple-touch-icon" sizes="180x180" href="/../admin/assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/../admin/assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/../admin/assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/../admin/assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="../admin/assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="/../admin/assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link href="/../admin/assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+  <link href="/../admin/assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+  
+</head>
+
+<body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container">
+            {{>admin-sidenav}}
+            {{>admin-vertical-nav}}
+            <div class="content">
+
+                <div class="mb-9">
+                    <div class="row align-items-center justify-content-between g-3 mb-4">
+                        <div class="col-auto">
+                            <h2 class="mb-0">Order details</h2>
+                        </div>
+                        <div class="col-auto">
+                            <div class="row g-3">
+                                <div class="col-auto"><button class="btn btn-phoenix-secondary"><span
+                                            class="fa-solid fa-trash-can me-2"></span>Delete Order</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-5">
+                        {{#each order}} 
+                        <div class="col-12 col-xxl-4">
+
+                            {{!-- ====================== --}}
+                            <div class="row g-3">
+                                <div class="col-12 col-md-7 col-xxl-12">
+                                    <div class="card h-100">
+
+                                        <div class="card-body">
+
+                                            <div class="border-dashed border-bottom border-300">
+                                                <div
+                                                    class="row align-items-center g-3 g-sm-5 pb-4 text-center text-sm-start">
+                                                    <div class="col-12 col-sm-auto">
+
+                                                        <div class="avatar avatar-5xl"><img class=""
+                                                                src="/../img/products/{{this.productDetail.[0].coverImage}}"
+                                                                alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-auto flex-1">
+                                                        <h3>{{this.productDetail.[0].productTitle}}</h3>
+                                                        <p class="text-800">Ordered on {{formatString this.createdAt}}
+                                                        </p>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-between-center pt-4 pt-md-6 pt-xxl-4">
+                                                <div>
+                                                    <h6>Payment Status</h6>
+                                                    {{#compareStrings this.paymentStatus 'fulfilled'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                                class="badge-label">fulfilled</span><span class="ms-1"
+                                                                data-feather="check"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.paymentStatus 'pending'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-warning"><span
+                                                                class="badge-label">Pending</span><span class="ms-1"
+                                                                data-feather="clock"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.paymentStatus 'failed'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-danger"><span
+                                                                class="badge-label">Failed</span><span class="ms-1"
+                                                                data-feather="x"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+                                                </div>
+
+
+                                                <div>
+                                                    <h6>Order Status</h6>
+
+                                                    {{#compareStrings this.products.orderStatus 'created'}} 
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                                class="badge-label">created</span><span class="ms-1"
+                                                                data-feather="check"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}} 
+
+                                                    {{#compareStrings this.products.orderStatus 'placed'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                                class="badge-label">Placed</span><span class="ms-1"
+                                                                data-feather="check"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.products.orderStatus 'pending'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-warning"><span
+                                                                class="badge-label">Pending</span><span class="ms-1"
+                                                                data-feather="clock"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.products.orderStatus 'shipped'}}
+                                                    <p
+                                                        class="fulfilment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span class="badge badge-phoenix fs--2 badge-phoenix-info"><span
+                                                                class="badge-label">Shipped</span><span class="ms-1"
+                                                                data-feather="info"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.products.orderStatus 'delivered'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                                class="badge-label">Delivered</span><span class="ms-1"
+                                                                data-feather="check"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.products.orderStatus 'canceled'}}
+                                                    <p
+                                                        class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-danger"><span
+                                                                class="badge-label">Canceled</span><span class="ms-1"
+                                                                data-feather="x"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+
+                                                    {{#compareStrings this.products.orderStatus 'returned'}}
+                                                    <p
+                                                        class="fulfilment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                        <span
+                                                            class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                                class="badge-label">Returned</span><span class="ms-1"
+                                                                data-feather="check"
+                                                                style="height:12.8px;width:12.8px;"></span></span>
+                                                    </p>
+                                                    {{/compareStrings}}
+                                                </div>
+
+                                                <div>
+                                                    <h6>Quantity</h6>
+                                                    <p class="fs-1 text-800 mb-0">{{this.products.quantity}} </p>
+                                                </div>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop{{this.products.productId}}">
+                                                    Edit Order status
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="staticBackdrop{{this.products.productId}}"
+                                    data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Change order status
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="/admin/statusForm" method="post" id="statusForm">
+                                                <div class="modal-body">
+                                                    <input type="text" name="productId"
+                                                        value="{{this.products.productId}}" hidden>
+                                                    <div>
+                                                        <input type="text" name="orderId" value="{{this._id}}" hidden>
+                                                    </div>
+                                                    <div>
+                                                        <label for="orderStatus">Current status</label>
+                                                        <input type="text" placeholder="{{this.products.orderStatus}}"
+                                                            id="orderStatus" readonly="true">
+                                                    </div>
+                                                    <div>
+                                                        order status
+                                                        <select name="status" id="status">
+                                                            <option value="placed">placed</option>
+                                                            <option value="pending">pending</option>
+                                                            <option value="shipped">shipped</option>
+                                                            <option value="canceled">canceled</option>
+                                                            <option value="returned">returned</option>
+                                                            <option value="delivered">delivered</option> 
+
+                                                        </select>
+                                                    </div>
+                                                    {{#compareStrings this.paymentMethod 'COD'}}
+                                                    <div>
+                                                        payment status
+                                                        <select name="payStatus" id="Paystatus">
+                                                            <option value="pending">pending</option>
+                                                            <option value="fulfilled">fulfilled</option>
+                                                            <option value="failed">failed</option>
+                                                        </select>
+                                                    </div>
+                                                    {{/compareStrings}}
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Update
+                                                        now</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                                <div class="col-12 col-md-5 col-xxl-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-6">
+                                                <h3 class="me-1">Ordered Address</h3><button
+                                                    class="btn btn-link p-0"></button>
+                                            </div>
+                                            <h5 class="text-800">Address</h5>
+                                            <p class="text-800">{{order.orderedAddress._id}}<br />Vancouver, British
+                                                Columbia<br />Canada</p>
+                                            <div class="mb-3">
+                                                <h5 class="text-800">Email</h5><a
+                                                    href="mailto:shatinon@jeemail.com">shatinon@jeemail.com</a>
+                                            </div>
+                                            <h5 class="text-800">Phone</h5><a class="text-800"
+                                                href="tel:+1234567890">+1234567890</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+
+
+
+    <script src="/../admin/vendors/popper/popper.min.js"></script>
+    <script src="/../admin/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="/../admin/vendors/anchorjs/anchor.min.js"></script>
+    <script src="/../admin/vendors/is/is.min.js"></script>
+    <script src="/../admin/vendors/fontawesome/all.min.js"></script>
+    <script src="/../admin/vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="/../admin/vendors/list.js/list.min.js"></script>
+    <script src="/../admin/vendors/feather-icons/feather.min.js"></script>
+    <script src="/../admin/vendors/dayjs/dayjs.min.js"></script>
+    <script src="/../admin/assets/js/phoenix.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+
+</html>

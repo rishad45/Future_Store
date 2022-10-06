@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container-fluid px-0" data-layout="container">
+            {{>admin-sidenav}}
+            {{>admin-vertical-nav}}
+            <div class="content">
+                <nav class="mb-2" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#!">Future Store</a></li>
+                        <li class="breadcrumb-item"><a href="#!">Admin</a></li>
+                        <li class="breadcrumb-item active">Banner Management</li>
+                    </ol>
+                </nav>
+                <div class="row g-3 flex-between-center mb-5">
+                    <div class="col-auto">
+                        <h2 class="mb-2">BANNER MANAGEMENT</h2>
+                        <h5 class="text-700 fw-semi-bold">Banners and ads for all over your website</h5>
+                    </div>
+                    <div class="col-auto"><button class="btn btn-primary mb-2 mb-sm-0" type="submit">Publish
+                            Banner</button></div>
+                </div>
+                <div class="row g-5">
+
+                    <h4 class="mb-3">HERO SLIDERS</h4>
+                    <p> Choose new Images</p>
+                    <div class="row mb-5">
+                        <form action="/admin/banners" method="post" id="heroSliderForm" enctype="multipart/form-data"> 
+                            <div class="col-4">
+                                <img src="/user/images/banner/accessories-vive-talk-d.jpg" alt="" width="100%"
+                                    height="100%" style="object-fit: cover;">
+
+                                <input type="file" name="images" id="images" multiple> 
+                                <input type="text" name="category" value="heroSlider" hidden>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Save Image</button>
+                        </form>
+                    </div>
+                </div>
+                {{!-- banners that helps users to go to shopping categories  --}}
+                <div class="row g-5">
+
+                    <h4 class="mb-3">Primary Banners</h4>
+                    <p> Choose 3 new Images</p>
+                    <div class="row mb-5">
+                        <form action="/admin/banners" method="post" enctype="multipart/form-data"> 
+                            <div class="col-4">
+                                <img src="/user/images/banner/accessories-vive-talk-d.jpg" alt="" width="100%"
+                                    height="100%" style="object-fit: cover;">
+                                <input type="file" name="images" id="images" multiple> 
+                                <input type="text" name="category" value="primary" hidden> 
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Save Images</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row g-5">
+
+                    <h4 class="mb-3">Secondary Banner</h4>
+                    <p> Choose 2 new Images</p>
+                    <div class="row mb-5">
+                        <form action="/admin/banners" method="post" enctype="multipart/form-data"> 
+                            <div class="col-4">
+                                <img src="/user/images/banner/accessories-vive-talk-d.jpg" alt="" width="100%"
+                                    height="100%" style="object-fit: cover;">
+                                <input type="file" name="images" id="images" multiple> 
+                                <input type="text" name="category" value="secondary" hidden> 
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-2">Save Images</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <!-- ===============================================-->
+
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+
+</body>
+
+</html>
