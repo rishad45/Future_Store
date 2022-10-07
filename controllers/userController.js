@@ -423,7 +423,7 @@ module.exports = {
         let couponStatus = false
 
         const cart = await userRepo.getCartByUser(new ObjectId(userId));
-        let total = await cartRepo.getCartTotal(new ObjectId(userId));
+        let total = await cartRepo.getCartTotal(new ObjectId(userId)); 
 
         // checking coupon
         if (req.session.coupon) {

@@ -4,7 +4,7 @@ const Promise = require('promise');
 const { response } = require('../app');
 const userBase = require('../models/userSchema')
 const bcrypt = require('bcrypt')
-const dotenv = require('dotenv').config() 
+const dotenv = require('dotenv').config()
 
 // console.log("hello", process.env.TWILIO_ACCOUNT_SID)
 // config = {
@@ -13,12 +13,17 @@ const dotenv = require('dotenv').config()
 //     authToken: "39fc5c2efff5874792aa8251037733be",
 // };
 // const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-const accountsid = process.env.TWILIO_ACCOUNT_SID
-const authToken = process.env.TWILIO_AUTH_TOKEN
-const client = require('twilio')(accountsid,authToken) 
-console.log(accountsid);
+try {
+    const accountsid = process.env.TWILIO_ACCOUNT_SID
+    const authToken = process.env.TWILIO_AUTH_TOKEN
+    const client = require('twilio')(accountsid, authToken)
+    console.log(accountsid);
+}catch(err){
+    console.log(err);
+}
+
 module.exports = {
-    createService: (done) => { 
+    createService: (done) => {
         var ser;
         client.verify.v2.services
             .create({ friendlyName: "My First Verify Service" })
@@ -39,7 +44,7 @@ module.exports = {
                 });
         });
     },
-    verifyOTP: (sid,mobile,otp) => {  
+    verifyOTP: (sid, mobile, otp) => {
 
         // console.log(sid);
         // console.log(mobile);
@@ -49,30 +54,30 @@ module.exports = {
         return new Promise((resolve, reject) => {
             client.verify.v2.services(sid)
                 .verificationChecks
-                .create({ to: mobile , code: otp }) 
+                .create({ to: mobile, code: otp })
                 .then(verification_check => resolve(verification_check.status));
         })
     },
-    userSignup:async(userData)=>{
+    userSignup: async (userData) => {
         console.log("iam here");
         userData.password = await bcrypt.hash(userData.password, 10);
         console.log(userData.password);
         const newUser = new userBase.model({
-          username: userData.name,
-          email:userData.email,
-          mobile:userData.mobile,
-          password:userData.password,
-          banned:0
+            username: userData.name,
+            email: userData.email,
+            mobile: userData.mobile,
+            password: userData.password,
+            banned: 0
         });
-        newUser.save(function(err,result){
-            if (err){
+        newUser.save(function (err, result) {
+            if (err) {
                 console.log(err);
             }
-            else{
+            else {
                 console.log(result)
             }
         })
 
-        
+
     }
 }
