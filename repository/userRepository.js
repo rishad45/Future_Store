@@ -18,7 +18,7 @@ const { json } = require('body-parser')
 
 // creating instance 
 let instance = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
+    key_id: 'rzp_test_jwDTlUJaAFAea0',
     key_secret: process.env.RAZORPAY_SECRETKEY,
 });
 
