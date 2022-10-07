@@ -4,10 +4,8 @@ const Promise = require('promise');
 const { response } = require('../app');
 const userBase = require('../models/userSchema')
 const bcrypt = require('bcrypt')
-const dotenv = require('dotenv') 
-dotenv.config({
-    path:'./.env'
-}) 
+const dotenv = require('dotenv').config() 
+
 // console.log("hello", process.env.TWILIO_ACCOUNT_SID)
 // config = {
 //     serviceID: "MG17090d896e22ffc513bc6d3388c6fe96",
