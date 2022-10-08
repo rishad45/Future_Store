@@ -51,7 +51,7 @@ module.exports = {
             const productId = req.params.id
             // const productId = req.body.productId
             const cart = await cartRepo.getCartById(userId)
-            if (cart) {
+            if (cart) { 
                 // check the product is exist in users cart or not 
                 try {
                     const index = await cartRepo.checkCartForPrdctIndex(userId, productId)
@@ -61,7 +61,7 @@ module.exports = {
                         // product exist in users cart
                         // so increment the cart quantity && total will be price*quantity 
                         await cartRepo.incrementTheIndex(userId, productId)
-                        res.redirect('/cart')
+                        res.redirect('/cart') 
                     } else {
                         // product is not in cart 
                         // get the product details && push item to cart
@@ -77,7 +77,7 @@ module.exports = {
                 // user have no cart .... so create one with the new product
                 try {
                     await cartRepo.createCart(productId, userId)
-                    res.redirect('/')
+                    res.redirect('/cart') 
                 } catch (err) {
                     res.send("can't create a cart because of " + err)
                 }

@@ -42,7 +42,7 @@
                                                     <ul class="mega-menu-sub">
                                                         {{#each subCategories}}
                                                         <li><a href="#">{{this.subCatTitle}}</a></li>
-                                                        {{/each}} 
+                                                        {{/each}}
                                                     </ul>
                                                 </li>
                                                 <!-- Mega Menu Sub Link -->
@@ -57,9 +57,10 @@
                                             </div>
                                         </div>
                                     </li>
-                                    {{#each categories}} 
+                                    {{#each categories}}
                                     <li class="has-dropdown">
-                                        <a class="active main-menu-link" href="/{{this.categoryTitle}}/1">{{this.categoryTitle}} 
+                                        <a class="active main-menu-link"
+                                            href="/{{this.categoryTitle}}/1">{{this.categoryTitle}}
                                             <i class="fa fa-angle-down"></i>
                                         </a>
                                         <!-- Sub Menu -->
@@ -67,15 +68,15 @@
                                             {{#each this.subCategories}}
                                             <li><a href="index.html">{{this.subCatTitle}}</a></li>
                                             {{/each}}
-                                           
+
                                         </ul>
                                     </li>
-                                    {{/each}} 
+                                    {{/each}}
                                     <li>
                                         <a href="#">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="#">Contact Us</a> 
+                                        <a href="#">Contact Us</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -104,7 +105,7 @@
                                 </a>
                                 {{else}}
                                 <a href="/cart">
-                                    <i class="icon-bag"></i> 
+                                    <i class="icon-bag"></i>
 
                                 </a>
                                 {{/if}}
@@ -118,7 +119,7 @@
                             <li>
                                 <div style="overflow:hidden">
                                     <a href="#offcanvas-about" class="offacnvas offside-about offcanvas-toggle">
-                                       <i class="fa fa-user" style="height: 100px;"></i> </a>
+                                        <i class="fa fa-user" style="height: 100px;"></i> </a>
                                 </div>
                             </li>
                         </ul>
@@ -160,7 +161,7 @@
                         <li>
                             <a href="index.html">
                                 <div class="logo">
-                                    <img src="user/images/logo/logo_black.png" alt="">
+                                    <img src="/user/images/logo/logo_meta.jpg" alt="">
                                 </div>
                             </a>
                         </li>
@@ -177,16 +178,28 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#offcanvas-wishlish" class="offcanvas-toggle">
+                            {{#if loggedIn}}
+                            <a href="/wishlist">
                                 <i class="icon-heart"></i>
-                                <span class="item-count">3</span>
+                                <span class="item-count">{{wishlistCount}}</span>
                             </a>
+                            {{else}}
+                            <a href="/wishlist">
+                                <i class="icon-heart"></i>
+                            </a>
+                            {{/if}}
                         </li>
                         <li>
-                            <a href="/cart" class="offcanvas-toggle">
+                            {{#if loggedIn}}
+                            <a href="/cart">
                                 <i class="icon-bag"></i>
-                                <span class="item-count">3</span>
+                                <span class="item-count">{{cartCount}}</span>
                             </a>
+                            {{else}}
+                            <a href="/cart">
+                                <i class="icon-bag"></i>
+                            </a>
+                            {{/if}}
                         </li>
                         <li>
                             <a href="#mobile-menu-offcanvas" class="offcanvas-toggle offside-menu">
@@ -216,100 +229,22 @@
             <div class="offcanvas-menu">
                 <ul>
                     <li>
-                        <a href="#"><span>Home</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li><a href="index.html">Home 1</a></li>
-                            <li><a href="index-2.html">Home 2</a></li>
-                            <li><a href="index-3.html">Home 3</a></li>
-                            <li><a href="index-4.html">Home 4</a></li>
-                        </ul>
+                        <a href="/"><span>Home</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>Shop</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li>
-                                <a href="#">Shop Layout</a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="shop-grid-sidebar-left.html">Grid Left Sidebar</a></li>
-                                    <li><a href="shop-grid-sidebar-right.html">Grid Right Sidebar</a></li>
-                                    <li><a href="shop-full-width.html">Full Width</a></li>
-                                    <li><a href="shop-list-sidebar-left.html">List Left Sidebar</a></li>
-                                    <li><a href="shop-list-sidebar-right.html">List Right Sidebar</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="mobile-sub-menu">
-                            <li>
-                                <a href="#">Shop Pages</a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="empty-cart.html">Empty Cart</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="compare.html">Compare</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="mobile-sub-menu">
-                            <li>
-                                <a href="#">Product Single</a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="product-details-default.html">Product Default</a></li>
-                                    <li><a href="product-details-variable.html">Product Variable</a></li>
-                                    <li><a href="product-details-affiliate.html">Product Referral</a></li>
-                                    <li><a href="product-details-group.html">Product Group</a></li>
-                                    <li><a href="product-details-single-slide.html">Product Slider</a></li>
-                                    <li><a href="product-details-tab-left.html">Product Tab Left</a></li>
-                                    <li><a href="product-details-tab-right.html">Product Tab Right</a></li>
-                                    <li><a href="product-details-gallery-left.html">Product Gallery Left</a></li>
-                                    <li><a href="product-details-gallery-right.html">Product Gallery Right</a></li>
-                                    <li><a href="product-details-sticky-left.html">Product Sticky Left</a></li>
-                                    <li><a href="product-details-sticky-right.html">Product Sticky right</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="/headset/1"><span>Headset</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>Blogs</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li>
-                                <a href="#">Blog Grid</a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-grid-sidebar-left.html">Blog Grid Sidebar left</a></li>
-                                    <li><a href="blog-grid-sidebar-right.html">Blog Grid Sidebar Right</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="blog-full-width.html">Blog Full Width</a>
-                            </li>
-                            <li>
-                                <a href="#">Blog List</a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-list-sidebar-left.html">Blog List Sidebar left</a></li>
-                                    <li><a href="blog-list-sidebar-right.html">Blog List Sidebar Right</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Blog Single</a>
-                                <ul class="mobile-sub-menu">
-                                    <li><a href="blog-single-sidebar-left.html">Blog Single Sidebar left</a></li>
-                                    <li><a href="blog-single-sidebar-right.html">Blog Single Sidebar Right</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="/accessories/1"><span>Accessories</span></a>
                     </li>
                     <li>
-                        <a href="#"><span>Pages</span></a>
-                        <ul class="mobile-sub-menu">
-                            <li><a href="faq.html">Frequently Questions</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="404.html">404 Page</a></li>
-                        </ul>
+                        <a href="/Games/1"><span>Games</span></a>
                     </li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li>
+                        <a href="/account"><span>Profile</span></a> 
+                    </li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div> <!-- End Mobile Menu Nav -->
         </div> <!-- End Mobile Menu -->
@@ -317,14 +252,11 @@
         <!-- Start Mobile contact Info -->
         <div class="mobile-contact-info">
             <div class="logo">
-                <a href="index.html"><img src="user/images/logo/logo_white.png" alt=""></a>
+                {{!-- <a href="index.html"><img src="/user/images/team/leader1.png" alt=""></a> --}}
+                
             </div>
 
-            <address class="address">
-                <span>Address: Your address goes here.</span>
-                <span>Call Us: 0123456789, 0123456789</span>
-                <span>Email: test@gmail.com</span>
-            </address>
+            
 
             <ul class="social-link">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -335,7 +267,7 @@
 
             <ul class="user-link">
                 <li><a href="/wishlist">Wishlist</a></li>
-                <li><a href="/cart">Cart</a></li> 
+                <li><a href="/cart">Cart</a></li>
             </ul>
         </div>
         <!-- End Mobile contact Info -->
@@ -361,7 +293,7 @@
             <li class="mb-2"><a href="/account">Profile</a></li>
             <li class="mb-2"><a href="/account">Manage addresses</a></li>
             <li class="mb-2"><a href="/account">My orders</a></li>
-            <li class="mb-2"><a href="/account">Coupons</a></li> 
+            <li class="mb-2"><a href="/account">Coupons</a></li>
         </ul>
         {{/if}}
 
